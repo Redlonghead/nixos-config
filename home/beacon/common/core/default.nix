@@ -23,6 +23,7 @@
     sops
     ranger
     bitwarden-cli
+    just
 
     #TODO NIX Neovim
     vim
