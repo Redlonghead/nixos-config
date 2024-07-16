@@ -19,16 +19,16 @@
     history.share = true;
 
     #FIXME overlays for pkgs are not working :/
-    # plugins = [
-    #   {
-    #     name = "zsh-term-title";
-    #     src = "${pkgs.zsh-term-title}/share/zsh/zsh-term-title/";
-    #   }
-    #   {
-    #     name = "cd-gitroot";
-    #     src = "${pkgs.cd-gitroot}/share/zsh/cd-gitroot";
-    #   }
-    # ];
+    plugins = [
+      {
+        name = "zsh-term-title";
+        src = "${pkgs.zsh-term-title}/share/zsh/zsh-term-title/";
+      }
+      {
+        name = "cd-gitroot";
+        src = "${pkgs.cd-gitroot}/share/zsh/cd-gitroot";
+      }
+    ];
 
     shellAliases = {
       la = "ls -la";

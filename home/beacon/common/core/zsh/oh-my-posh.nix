@@ -25,6 +25,17 @@
               template: " {{ .Path }} "
               properties:
                 style: full
+                mapped_locations:
+                  ~/: 🏠
+                  ~/Desktop: 🖥
+                  ~/Documents: 📄
+                  ~/Downloads: 📥
+                  ~/Music: 🎵
+                  ~/Pictures: 📷
+                  ~/Videos: 🎥
+                  ~/src: 💻
+                  ~/src/nixos-secrets: 🔒
+                  ~/src/nixos-config: 
               style: powerline
               type: path
             - background: "#2e9599"
