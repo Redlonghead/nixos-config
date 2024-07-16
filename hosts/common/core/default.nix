@@ -1,7 +1,6 @@
 { inputs, outputs, configLib, configVars, ... }: {
-  imports = (configLib.scanPaths ./.);
-  # ++ (builtins.attrValues outputs.nixosModules);
-  # FIXME look into
+  imports = (configLib.scanPaths ./.)
+    ++ (builtins.attrValues outputs.nixosModules);
 
   services.yubikey-agent.enable = true;
 

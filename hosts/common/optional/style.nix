@@ -20,15 +20,15 @@ in
   stylix.fonts = {
     monospace = {
       name = configVars.userSettings.font;
-      package = configVars.userSettings.fontPkg;
+      package = pkgs.nerdfonts;
     };
     serif = {
       name = configVars.userSettings.font;
-      package = configVars.userSettings.fontPkg;
+      package = pkgs.nerdfonts;
     };
     sansSerif = {
       name = configVars.userSettings.font;
-      package = configVars.userSettings.fontPkg;
+      package = pkgs.nerdfonts;
     };
     emoji = {
       name = "Noto Color Emoji";

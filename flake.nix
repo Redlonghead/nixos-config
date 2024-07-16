@@ -4,49 +4,23 @@
   outputs = { self, ... } @ inputs:
     let
       inherit (self) outputs;
-      forAllSystems = pkgs.lib.genAttrs [
+      forAllSystems = inputs.nixpkgs-stable.lib.genAttrs [
         "x86_64-linux"
       ];
 
-      configVars = import ./vars { inherit inputs pkgs lib; };
+      inherit (inputs.nixpkgs-stable) lib;
+      configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
-      specialArgs = { inherit inputs pkgs configVars configLib pkgs-stable; };
+      specialArgs = { inherit inputs outputs configVars configLib; };
 
-      pkgs = (if (configVars.systemSettings.profile == "server")
-      then
-        pkgs-stable
-      else
-        (import inputs.nixpkgs-unstable {
-          #FIXME error: infinite recursion encountered
-          # overlays = [ (import ./overlays) ];
-          system = configVars.systemSettings.system;
-          config = {
-            allowUnfree = true;
-          };
-        })
-      );
-
-      pkgs-stable = import inputs.nixpkgs-stable {
+      pkgs = import inputs.nixpkgs-stable {
         system = configVars.systemSettings.system;
         config = {
           allowUnfree = true;
         };
       };
 
-      lib = (if (configVars.systemSettings.profile == "server")
-      then
-        inputs.nixpkg-stable.lib
-      else
-        inputs.nixpkgs-unstable.lib
-      );
-
-      home-manager = (if (configVars.systemSettings.profile == "server")
-      then
-        inputs.home-manager-stable
-      else
-        inputs.home-manager-unstable
-      );
-
+      home-manager = inputs.home-manager-stable;
     in
     {
       # Custom modules to enable special functionality for nixos or home-manager oriented configs.
@@ -59,7 +33,7 @@
       # Custom packages to be shared or upstreamed.
       packages = forAllSystems
         (system:
-          let pkgs = pkgs.legacyPackages.${system};
+          let pkgs = inputs.nixpkgs-stable.legacyPackages.${configVars.systemSettings.system};
           in import ./pkgs { inherit pkgs; }
         );
 
@@ -69,8 +43,8 @@
       # Shell configured with packages that are typically only needed when working on or with nix-config.
       devShells = forAllSystems
         (system:
-          # let pkgs = nixpkgs.legacyPackages.${system};
-          import ./shell.nix { inherit pkgs; }
+          let pkgs = inputs.nixpkgs-stable.legacyPackages.${configVars.systemSettings.system};
+          in import ./shell.nix { inherit pkgs; }
         );
 
       nixosConfigurations = {
@@ -102,7 +76,7 @@
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     home-manager-stable = {
@@ -112,7 +86,7 @@
 
     sops-nix = {
       url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     ########## Personal inputs ##########
@@ -126,7 +100,7 @@
     ########## Extra inputs #############
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
   };
 

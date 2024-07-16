@@ -1,8 +1,7 @@
-{ config, lib, pkgs, pkgs-stable, outputs, configLib, configVars, ... }:
+{ config, lib, pkgs, outputs, configLib, configVars, ... }:
 {
-  imports = (configLib.scanPaths ./.);
-  #FIXME error: infinite recursion encountered
-  # ++ (builtins.attrValues outputs.homeManagerModules);
+  imports = (configLib.scanPaths ./.)
+    ++ (builtins.attrValues outputs.homeManagerModules);
   services.ssh-agent.enable = true;
 
   # Default Info / Settings
@@ -30,6 +29,8 @@
     sops
     ranger
     remmina
+    bitwarden
+    bitwarden-cli
 
     #TODO NIX Neovim
     vim
@@ -42,14 +43,9 @@
     vscode
     terraform
 
-  ]) ++
-  (with pkgs-stable; [
 
-    # Password Manager so it should always work
-    bitwarden
-    bitwarden-cli
-
-  ]);
+  ]); # ++
+  # (with pkgs.unstable; [ STUFF ])
 
   services.mpris-proxy.enable = true;
 

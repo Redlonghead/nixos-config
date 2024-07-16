@@ -42,7 +42,6 @@
   # browser = "firefox";
   # editor = "vscode";
   # font = "FiraCode";
-  # fontPkg = pkgs.nerdfonts;
 
   programs.zsh.shellAliases = {
     ga = "git add";

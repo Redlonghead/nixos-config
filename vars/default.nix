@@ -1,8 +1,7 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, lib }:
 
 {
   systemSettings = rec {
-    # hostName = "CB-FW"; #TODO remove
     profile = "personal/laptop"; #TODO remove
     wm = "hyprland";
     wmType = if (wm == "hyprland") then "wayland" else "x11";
@@ -24,7 +23,6 @@
     browser = "firefox";
     editor = "vscode";
     font = "FiraCode";
-    fontPkg = pkgs.nerdfonts;
     username = "beacon"; #TODO remove??
 
     dotfilesDir = "/home/beacon/src/nixos-config";
