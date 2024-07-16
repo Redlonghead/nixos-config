@@ -8,11 +8,11 @@
     common/optional/style/style.nix
     common/optional/wm/hyprland/hyprland.nix
     common/optional/kitty.nix
+    common/optional/ui-apps.nix
 
-    # common/optional/desktops
   ];
 
   #FIXME
-  # services.yubikey-touch-detector.enable = true;
+  services.yubikey-touch-detector.enable = true;
 
 }

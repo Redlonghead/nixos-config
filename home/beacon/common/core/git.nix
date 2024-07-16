@@ -1,9 +1,9 @@
 { config, pkgs, configVars, ... }:
 
 {
-  home.packages = with pkgs; [ git lazygit ];
   programs.git = {
     enable = true;
+    package = pkgs.git;
     userName = configVars.userSettings.name;
     userEmail = configVars.userSettings.git-email;
     signing = {
@@ -17,6 +17,11 @@
       # filter.flake-redact.smudge = "sh ${configVars.userSettings.dotfilesDir}/user/app/git/filters/flake-redact-smudge.sh";
       # filter.flake-redact.clean = "sh ${configVars.userSettings.dotfilesDir}/user/app/git/filters/flake-redact-clean.sh";
     };
+  };
+
+  programs.lazygit = {
+    enable = true;
+    package = pkgs.lazygit;
   };
 
   #TODO Add script files that takes out user and system settings from flake.nix 
@@ -49,6 +54,7 @@
     gc = "git commit -m";
     gp = "git push";
     gpl = "git pull";
+    lg = "lazygit";
   };
 
 }
