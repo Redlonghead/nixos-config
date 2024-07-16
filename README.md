@@ -6,6 +6,6 @@
 
 ### Errors
 
-1. `home-manager switch --refresh --flake .#user`
+1. `home-manager switch --refresh --flake .#$USER@$HOST`
 2. `systemctl --user reset-failed`
 3. `home-manager switch --flake .#user` (or `beacon sync user`)
