@@ -49,19 +49,19 @@
 
       nixosConfigurations = {
 
-        CB-FW = lib.nixosSystem {
+        CB-FW-LX = lib.nixosSystem {
           modules = [
-            ./hosts/CB-FW
+            ./hosts/CB-FW-LX
           ];
           inherit specialArgs;
         };
       };
 
       homeConfigurations = {
-        "beacon@CB-FW" = home-manager.lib.homeManagerConfiguration {
+        "beacon@CB-FW-LX" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home/beacon/CB-FW.nix
+            ./home/beacon/CB-FW-LX.nix
           ];
           extraSpecialArgs = specialArgs;
         };
@@ -93,7 +93,7 @@
 
     # Private repo. with SOPS encrypted secrets and nixosModules
     nixos-secrets = {
-      url = "git+ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"; # =main&shallow=1
+      url = "git+ssh://git@gitlab.com/Redlonghead/nixos-secrets.git";
     };
 
     ########## Extra inputs #############

@@ -1,6 +1,6 @@
 #############################################################
 #
-#  CB-FW - Personal Framework 13 laptop
+#  CB-FW-LX - Personal Framework 13 laptop
 #  NixOS
 #
 #############################################################
@@ -16,7 +16,7 @@
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
 
     ############ NixOS-Secrets Modules ###############
-    inputs.nixos-secrets.nixosModules.wireguard-CT-CB-FW
+    inputs.nixos-secrets.nixosModules.wireguard-CT-CB-FW-LX
   ]
   ++ (map configLib.relativeToRoot [
     ############ Required Configs ####################
@@ -40,7 +40,7 @@
 
   ]);
 
-  networking.hostName = "CB-FW";
+  networking.hostName = "CB-FW-LX";
   # networking.interfaces = {
   #   wlp170s0.ipv4.addresses = [{
   #     address = "10.1.1.21";

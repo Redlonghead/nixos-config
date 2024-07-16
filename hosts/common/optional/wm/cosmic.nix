@@ -26,7 +26,7 @@
 
 # Nixos Config
 
-# CB-FW = lib.nixosSystem {
+# CB-FW-LX = lib.nixosSystem {
 #   modules = [
 #   {
 #     nix.settings = {
@@ -35,7 +35,7 @@
 #     };
 #   }
 #     nixos-cosmic.nixosModules.default
-#     ./hosts/CB-FW
+#     ./hosts/CB-FW-LX
 #   ];
 #   inherit specialArgs;
 # };
