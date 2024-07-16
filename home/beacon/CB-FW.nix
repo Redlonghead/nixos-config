@@ -19,8 +19,4 @@
   #FIXME
   # services.yubikey-touch-detector.enable = true;
 
-  home = {
-    username = configVars.userSettings.username;
-    homeDirectory = "/home/${configVars.userSettings.username}";
-  };
 }

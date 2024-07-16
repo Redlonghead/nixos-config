@@ -23,7 +23,7 @@
         owner = config.users.users.${configVars.userSettings.username}.name;
         inherit (config.users.users.${configVars.userSettings.username}) group;
 
-        path = "/home/beacon/.ssh/id_${configVars.userSettings.username}";
+        path = "/home/${configVars.userSettings.username}/.ssh/id_${configVars.userSettings.username}";
       };
 
     };

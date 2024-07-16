@@ -36,6 +36,8 @@
 
   ]);
 
+  networking.hostName = "CB-FW";
+
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH
   programs.nix-ld.enable = true; # On for VScode server

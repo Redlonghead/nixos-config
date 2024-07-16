@@ -8,15 +8,15 @@
   # Default Info / Settings
   news.display = "silent";
   home = {
-    username = configVars.userSettings.username;
-    homeDirectory = "/home/" + configVars.userSettings.username;
-    stateVersion = "23.11"; # Don't change.
+    username = lib.mkDefault configVars.userSettings.username;
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = lib.mkDefault "23.11"; # Don't change.
     sessionVariables = {
-      # FLAKE = "$HOME/src/nix-config";
-      # SHELL = "zsh";
-      # TERM = "kitty";
-      # TERMINAL = "kitty";
-      # EDITOR = "nano";
+      FLAKE = "$HOME/nix-config";
+      SHELL = "zsh";
+      TERM = "kitty";
+      TERMINAL = "kitty";
+      EDITOR = "nano";
     };
   };
 

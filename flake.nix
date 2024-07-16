@@ -88,10 +88,10 @@
       };
 
       homeConfigurations = {
-        beacon = home-manager.lib.homeManagerConfiguration {
+        "beacon@CB-FW" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            (./. + "/home" + ("/" + configVars.userSettings.username + "/" + configVars.systemSettings.hostName) + ".nix")
+            ./home/beacon/CB-FW.nix
           ];
           extraSpecialArgs = specialArgs;
         };

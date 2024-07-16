@@ -2,8 +2,8 @@
 
 {
   systemSettings = rec {
-    hostName = "CB-FW"; # remove
-    profile = "personal/laptop"; # remove
+    # hostName = "CB-FW"; #TODO remove
+    profile = "personal/laptop"; #TODO remove
     wm = "hyprland";
     wmType = if (wm == "hyprland") then "wayland" else "x11";
     timezone = "America/Chicago";
@@ -18,14 +18,14 @@
 
   userSettings = rec {
     name = "Connor Beard";
-    email = ""; # add nix-secrets input
+    email = ""; #TODO add nix-secrets input
     git-email = "git@beardit.net";
     theme = "uwunicorn-yt";
     browser = "firefox";
     editor = "vscode";
     font = "FiraCode";
     fontPkg = pkgs.nerdfonts;
-    username = "beacon"; # remove
+    username = "beacon"; #TODO remove??
 
     dotfilesDir = "/home/beacon/nixos-config";
   };

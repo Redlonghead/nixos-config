@@ -31,7 +31,6 @@
 
   # Networking
   networking = {
-    hostName = configVars.systemSettings.hostName;
     networkmanager.enable = true;
     enableIPv6 = false;
   };
