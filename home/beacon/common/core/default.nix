@@ -31,6 +31,10 @@
     ranger
     remmina
 
+    #TODO NIX Neovim
+    vim
+    neovim
+
     # Unfree
     obsidian
     discord
