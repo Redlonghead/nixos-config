@@ -1,16 +1,18 @@
-{ pkgs, userSettings, ... }: let
+{ pkgs, userSettings, ... }:
+let
 
   #TODO finish this service
   # SOPS file
   sops = {
-    url = ""; 
+    url = "";
     oidc = {
       id = "";
       secret = "";
     };
   };
 
-in {
+in
+{
   services.freshrss = {
     enable = true;
     package = pkgs.freshrss;
@@ -26,7 +28,7 @@ in {
     OIDC_ENABLED = 1;
     OIDC_PROVIDER_METADATA_URL = "https://${sops.url}/application/o/freshrss/.well-known/openid-configuration";
     OIDC_CLIENT_ID = sops.oidc.id;
-    OIDC_CLIENT_SECRET = sops.oidc.secret; 
+    OIDC_CLIENT_SECRET = sops.oidc.secret;
     OIDC_X_FORWARDED_HEADERS = "X-Forwarded-Port X-Forwarded-Proto X-Forwarded-Host";
     OIDC_SCOPES = "openid email profile";
   };

@@ -20,7 +20,7 @@
   };
 
   #TODO Add script files that takes out user and system settings from flake.nix 
-  
+
   # Need also .gitattributes file
 
   # This script just taks whats in the 

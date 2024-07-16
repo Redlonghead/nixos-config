@@ -18,7 +18,7 @@
 
   userSettings = rec {
     name = "Connor Beard";
-    email = ""; #TODO add nix-secrets input
+    email = ""; #TODO add nixos-secrets input
     git-email = "git@beardit.net";
     theme = "uwunicorn-yt";
     browser = "firefox";

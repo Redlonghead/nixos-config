@@ -8,7 +8,7 @@
   sops = {
 
     # String to SOPS when added as input to flake.
-    defaultSopsFile = "${builtins.toString inputs.nix-secrets}/host-secrets.yaml";
+    defaultSopsFile = "${builtins.toString inputs.nixos-secrets}/host-secrets.yaml";
     validateSopsFiles = false;
 
     age = {

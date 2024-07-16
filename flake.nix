@@ -78,10 +78,6 @@
         CB-FW = lib.nixosSystem {
           modules = [
             ./hosts/CB-FW
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = specialArgs;
-            }
           ];
           inherit specialArgs;
         };
@@ -122,7 +118,7 @@
     ########## Personal inputs ##########
 
     # Private repo. with SOPS encrypted secrets
-    nix-secrets = {
+    nixos-secrets = {
       url = "git+ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"; # =main&shallow=1
       flake = false;
     };

@@ -226,22 +226,6 @@
         "type": "github"
       }
     },
-    "nix-secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1720150543,
-        "narHash": "sha256-dVcCLJSndqThKt7EVTSnkkB38K7TQkG4HXEf+hgyhTU=",
-        "ref": "refs/heads/main",
-        "rev": "ee264d2b6ef880c819f89cdc1f8a544c58bc1205",
-        "revCount": 7,
-        "type": "git",
-        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1719895800,
@@ -256,6 +240,22 @@
         "ref": "master",
         "repo": "nixos-hardware",
         "type": "github"
+      }
+    },
+    "nixos-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720150543,
+        "narHash": "sha256-dVcCLJSndqThKt7EVTSnkkB38K7TQkG4HXEf+hgyhTU=",
+        "ref": "refs/heads/main",
+        "rev": "ee264d2b6ef880c819f89cdc1f8a544c58bc1205",
+        "revCount": 7,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       }
     },
     "nixpkgs-stable": {
@@ -308,8 +308,8 @@
       "inputs": {
         "home-manager-stable": "home-manager-stable",
         "home-manager-unstable": "home-manager-unstable",
-        "nix-secrets": "nix-secrets",
         "nixos-hardware": "nixos-hardware",
+        "nixos-secrets": "nixos-secrets",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",

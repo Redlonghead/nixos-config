@@ -2,7 +2,7 @@
 {
   imports = (configLib.scanPaths ./.);
   #FIXME error: infinite recursion encountered
-    # ++ (builtins.attrValues outputs.homeManagerModules);
+  # ++ (builtins.attrValues outputs.homeManagerModules);
   services.ssh-agent.enable = true;
 
   # Default Info / Settings
