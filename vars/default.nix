@@ -27,6 +27,6 @@
     fontPkg = pkgs.nerdfonts;
     username = "beacon"; # remove
 
-    dotfilesDir = "/home/beacon/.dotfiles";
+    dotfilesDir = "/home/beacon/nixos-config";
   };
 }
