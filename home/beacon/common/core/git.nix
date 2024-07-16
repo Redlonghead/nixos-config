@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     package = pkgs.git;
-    userName = configVars.userSettings.name;
+    userName = "Redlonghead";
     userEmail = configVars.userSettings.git-email;
     signing = {
       signByDefault = true;
