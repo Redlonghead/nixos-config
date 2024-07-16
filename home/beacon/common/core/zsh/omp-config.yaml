@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: true
+version: 2
+blocks:
+  - type: prompt
+    alignment: left
+    segments:
+      - type: path
+        style: plain
+        # powerline_symbol: 
+        background: transparent
+        foreground: blue
+        properties:
+          - style: full
+blocks:
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: text
+        style: plain
+        foreground: magenta
+        background: transparent
+        template: ❯
