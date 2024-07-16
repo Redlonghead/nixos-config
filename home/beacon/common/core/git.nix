@@ -1,7 +1,7 @@
 { config, pkgs, configVars, ... }:
 
 {
-  home.packages = [ pkgs.git ];
+  home.packages = with pkgs; [ git lazygit ];
   programs.git = {
     enable = true;
     userName = configVars.userSettings.name;
