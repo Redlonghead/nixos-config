@@ -20,11 +20,14 @@
     obsidian
     discord
     spotify
-    vscode
     terraform
 
-  ]); # ++
-  # (with pkgs.unstable; [ STUFF ])
+  ]) ++
+  (with pkgs.unstable; [ 
+  
+    vscode 
+  
+  ]);
 
   services.mpris-proxy.enable = true;
 

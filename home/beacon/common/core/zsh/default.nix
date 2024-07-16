@@ -18,7 +18,6 @@
     history.size = 10000;
     history.share = true;
 
-    #FIXME overlays for pkgs are not working :/
     plugins = [
       {
         name = "zsh-term-title";
