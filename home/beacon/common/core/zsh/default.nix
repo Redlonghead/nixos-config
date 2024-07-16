@@ -35,6 +35,8 @@
       ll = "ls -l";
       ".." = "cd ..";
       cl = "clear";
+      ncc = "cd ~/src/nixos-config";
+      nsc = "cd ~/src/nixos-secrets";
     };
   };
 }

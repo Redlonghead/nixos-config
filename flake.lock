@@ -235,11 +235,11 @@
         "rev": "ee264d2b6ef880c819f89cdc1f8a544c58bc1205",
         "revCount": 7,
         "type": "git",
-        "url": "ssh://git@gitlab.com/Redlonghead/nix-secrets.git"
+        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.com/Redlonghead/nix-secrets.git"
+        "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       }
     },
     "nixos-hardware": {

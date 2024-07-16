@@ -123,7 +123,7 @@
 
     # Private repo. with SOPS encrypted secrets
     nix-secrets = {
-      url = "git+ssh://git@gitlab.com/Redlonghead/nix-secrets.git"; # =main&shallow=1
+      url = "git+ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"; # =main&shallow=1
       flake = false;
     };
 

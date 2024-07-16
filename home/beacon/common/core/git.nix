@@ -44,4 +44,12 @@
   # font = "FiraCode";
   # fontPkg = pkgs.nerdfonts;
 
+  programs.zsh.shellAliases = {
+    ga = "git add";
+    gs = "git status";
+    gc = "git commit -m";
+    gp = "git push";
+    gpl = "git pull";
+  };
+
 }
