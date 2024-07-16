@@ -17,7 +17,7 @@
 
     secrets = {
       # add secrets to be extracted under $XDG_RUNTIME_DIR/secrets.d and symlink to $HOME/.config/sops-nix/secrets
-      "wireguard/CB-FW" = { };
+      # "wireguard/CB-FW" = { };
 
     };
 

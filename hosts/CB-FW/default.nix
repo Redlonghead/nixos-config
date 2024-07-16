@@ -14,6 +14,9 @@
 
     ############ Hardware Modules ####################
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
+
+    ############ NixOS-Secrets Modules ###############
+    inputs.nixos-secrets.nixosModules.wireguard-CT-CB-FW
   ]
   ++ (map configLib.relativeToRoot [
     ############ Required Configs ####################
@@ -30,7 +33,6 @@
     "hosts/common/optional/brightnessctl.nix"
     "hosts/common/optional/steam.nix"
     "hosts/common/optional/style.nix"
-    "hosts/common/optional/wireguard-client.nix"
     # "hosts/common/optional/lt-power.nix"
 
     ############ User to create ######################
