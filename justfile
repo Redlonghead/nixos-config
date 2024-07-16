@@ -8,7 +8,7 @@ default:
 
 [private]
 @rebuild-pre:
-  git add *.nix
+  git add .
   (cd ../nixos-secrets && git fetch && git rebase) || true
   nix flake lock --update-input nixos-secrets
 
