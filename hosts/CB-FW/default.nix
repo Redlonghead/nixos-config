@@ -30,13 +30,26 @@
     "hosts/common/optional/brightnessctl.nix"
     "hosts/common/optional/steam.nix"
     "hosts/common/optional/style.nix"
+    "hosts/common/optional/wireguard-client.nix"
     # "hosts/common/optional/lt-power.nix"
+
     ############ User to create ######################
     "hosts/common/users/beacon"
 
   ]);
 
   networking.hostName = "CB-FW";
+  # networking.interfaces = {
+  #   wlp170s0.ipv4.addresses = [{
+  #     address = "10.1.1.21";
+  #     prefix = 16;
+  #   }];
+
+  #   enp0s13f0u3.ipv4.addresses = [{
+  #     address = "10.1.1.11";
+  #     prefix = 16;
+  #   }];
+  # };
 
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH
