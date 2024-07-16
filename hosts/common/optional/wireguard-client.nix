@@ -2,6 +2,7 @@
 
 {
 
+  #TODO Make into nixosModule in nixos-secrets
   sops = {
     secrets = {
       "wireguard/${config.networking.hostName}/ip" = { };

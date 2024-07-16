@@ -1,5 +1,5 @@
 {
-  description = "Connor's NixOS Flake";
+  description = "Connor's NixOS-config Flake";
 
   outputs = { self, ... } @ inputs:
     let
@@ -91,10 +91,9 @@
 
     ########## Personal inputs ##########
 
-    # Private repo. with SOPS encrypted secrets
+    # Private repo. with SOPS encrypted secrets and nixosModules
     nixos-secrets = {
       url = "git+ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"; # =main&shallow=1
-      flake = false;
     };
 
     ########## Extra inputs #############
