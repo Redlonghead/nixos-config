@@ -11,7 +11,7 @@ in
     flags = [
       "--refresh"
     ];
-    flake = "git://gitlab.com/Redlonghead/nix-config";
+    flake = "git://gitlab.com/Redlonghead/nix-config#${config.networking.hostname}";
   };
 
   # Only run if current config (self) is older than the new one.
