@@ -40,8 +40,8 @@ hm-trace host=HOST user=USER: && hm-post
   cd ../nixos-secrets/sops && (sops updatekeys -y {{secret}} && git add -u && (git commit -m "chore: rekey {{secret}}" || true) && git push)
 
 # Garbage Collect for NixOS 
-@gc time="10d": && ns
-  nix-collect-garbage --delete-older-than {{time}}
+@gc: && ns
+  nix-collect-garbage --delete-old
 
 [private]
 @hm-post:
