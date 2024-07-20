@@ -26,14 +26,5 @@ in
     );
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "00:00";
-    options = "--delete-older-than 10d";
-  };
-
-  nix.optimise = {
-    automatic = true;
-    dates = [ "04:00" ];
-  };
+  nix.settings.auto-optimise-store = true;
 }
