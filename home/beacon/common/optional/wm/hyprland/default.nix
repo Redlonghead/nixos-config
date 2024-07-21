@@ -45,7 +45,7 @@
         "$mainMod, Q, exec, kitty"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
-        "$mainMod, V, togglefloating,"
+        "$mainMod, Z, togglefloating,"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
 
@@ -89,6 +89,8 @@
 
         # Custom Stuff
         "$mainMod, V, exec, code"
+        "$mainMod, O, exec, obsidian"
+        "$mainMod, N, exec, code /home/beacon/Documents/NixOS.code-workspace"
         "$mainMod, F, exec, firefox"
         "$mainMod, E, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
         ", code:234, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
