@@ -24,6 +24,8 @@
     ranger
     bitwarden-cli
     just
+    thunderbird
+    protonmail-bridge-gui
 
     #TODO NIX Neovim
     vim
