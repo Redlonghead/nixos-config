@@ -26,6 +26,7 @@
     just
     thunderbird
     protonmail-bridge-gui
+    fastfetch
 
     #TODO NIX Neovim
     vim
