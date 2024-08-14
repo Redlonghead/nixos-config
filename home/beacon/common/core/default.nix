@@ -24,8 +24,7 @@
     ranger
     bitwarden-cli
     just
-    thunderbird
-    protonmail-bridge-gui
+    protonmail-bridge
     fastfetch
 
     #TODO NIX Neovim

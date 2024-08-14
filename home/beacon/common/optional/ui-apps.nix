@@ -15,6 +15,8 @@
     hunspell # LibraOffice Spellcheck
     hunspellDicts.en_US
     moonlight-qt
+    thunderbird
+    protonmail-bridge-gui
 
     # Unfree
     obsidian
