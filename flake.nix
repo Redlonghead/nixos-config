@@ -49,19 +49,19 @@
 
       nixosConfigurations = {
 
-        CB-FW-LX = lib.nixosSystem {
+        CLB-FRW-LNX = lib.nixosSystem {
           modules = [
-            ./hosts/CB-FW-LX
+            ./hosts/CLB-FRW-LNX
           ];
           inherit specialArgs;
         };
       };
 
       homeConfigurations = {
-        "beacon@CB-FW-LX" = home-manager.lib.homeManagerConfiguration {
+        "beacon@CLB-FRW-LNX" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home/beacon/CB-FW-LX.nix
+            ./home/beacon/CLB-FRW-LNX.nix
           ];
           extraSpecialArgs = specialArgs;
         };

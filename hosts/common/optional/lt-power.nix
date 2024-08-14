@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  #FIXME Acctually make this work with CB-FW-LX
+  #FIXME Acctually make this work with CLB-FRW-LNX
   services.tlp = {
     enable = true;
     settings = {
