@@ -34,16 +34,16 @@
     cert = config.sops.secrets."syncthing/${config.networking.hostName}/cert".path;
 
     settings = {
-      devices = { "CB-SNAS-01" = { id = "0AM0X7P-J0EACFU-HCJMJER-ZEBN7DK-KE7TMBX-YEZTM4U-Y22JDPP-KIPC3QU"; }; };
+      devices = { "BIT-SNY-DSM-001" = { id = "0AM0X7P-J0EACFU-HCJMJER-ZEBN7DK-KE7TMBX-YEZTM4U-Y22JDPP-KIPC3QU"; }; };
       folders = {
         "CB-SRC" = {
           path = "~/src";
-          devices = [ "CB-SNAS-01" ];
+          devices = [ "BIT-SNY-DSM-001" ];
           ignorePerms = false;
         };
         "CB-Documents" = {
           path = "~/Documents";
-          devices = [ "CB-SNAS-01" ];
+          devices = [ "BIT-SNY-DSM-001" ];
         };
       };
     };
