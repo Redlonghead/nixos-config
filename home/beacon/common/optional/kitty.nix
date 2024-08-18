@@ -8,4 +8,8 @@
   programs.kitty.settings = {
     background_opacity = lib.mkForce "0.75";
   };
+
+  programs.zsh.shellAliases = {
+    ssh = "kitten ssh";
+  };
 }

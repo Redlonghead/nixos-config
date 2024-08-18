@@ -41,6 +41,10 @@
     warn-dirty = false;
   };
 
+  # environment.systemPackages = with pkgs; [
+  # 
+  # ];
+
   hardware.enableRedistributableFirmware = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -26,6 +26,8 @@
     just
     protonmail-bridge
     fastfetch
+    zip
+    unzip
 
     #TODO NIX Neovim
     vim
