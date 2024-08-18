@@ -29,11 +29,12 @@
     "hosts/common/optional/services/printing.nix"
     "hosts/common/optional/services/syncthing.nix"
     "hosts/common/optional/services/twingate.nix"
-    "hosts/common/optional/wm/hyprland.nix"
     "hosts/common/optional/brightnessctl.nix"
+    "hosts/common/optional/wm/hyprland.nix"
+    "hosts/common/optional/lt-power.nix"
+    "hosts/common/optional/appimage.nix"
     "hosts/common/optional/steam.nix"
     "hosts/common/optional/style.nix"
-    # "hosts/common/optional/lt-power.nix"
 
     ############ User to create ######################
     "hosts/common/users/beacon"
