@@ -55,6 +55,13 @@
           ];
           inherit specialArgs;
         };
+
+        CLB-TRW-LNX = lib.nixosSystem {
+          modules = [
+            ./hosts/CLB-TRW-LNX
+          ];
+          inherit specialArgs;
+        };
       };
 
       homeConfigurations = {
@@ -62,6 +69,14 @@
           inherit pkgs;
           modules = [
             ./home/beacon/CLB-FRW-LNX.nix
+          ];
+          extraSpecialArgs = specialArgs;
+        };
+        
+        "beacon@CLB-TRW-LNX" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home/beacon/CLB-TRW-LNX.nix
           ];
           extraSpecialArgs = specialArgs;
         };
