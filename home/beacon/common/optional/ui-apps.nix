@@ -34,8 +34,6 @@
   services.mpris-proxy.enable = true;
 
   programs = {
-    home-manager.enable = true;
-    direnv.enable = true;
     zsh = {
       shellAliases = {
         tg = "twingate";
