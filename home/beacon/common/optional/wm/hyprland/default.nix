@@ -91,7 +91,7 @@
         "$mainMod, V, exec, code"
         "$mainMod, O, exec, obsidian"
         "$mainMod, N, exec, code /home/beacon/Documents/NixOS.code-workspace"
-        "$mainMod, F, exec, firefox"
+        "$mainMod, F, exec, floorp"
         "$mainMod, E, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
         ", code:234, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
         "$mainMod, L, exec, hyprlock"

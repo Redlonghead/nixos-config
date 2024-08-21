@@ -4,7 +4,7 @@
 
   home.packages = (with pkgs; [
 
-    firefox
+    floorp
     vlc
     youtube-music
     obs-studio
