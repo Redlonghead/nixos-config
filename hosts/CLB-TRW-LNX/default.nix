@@ -39,18 +39,24 @@
 
   ]);
 
-  networking.hostName = "CLB-TRW-LNX";
-  # networking.interfaces = {
-  #   wlp170s0.ipv4.addresses = [{
-  #     address = "10.1.1.21";
-  #     prefix = 16;
-  #   }];
+  networking = {
+    hostName = "CLB-TRW-LNX";
+    interfaces = {
+      # wlp41s0.ipv4.addresses = [{
+      #   address = "10.1.1.32";
+      #   prefixLength = 16;
+      # }];
 
-  #   enp0s13f0u3.ipv4.addresses = [{
-  #     address = "10.1.1.11";
-  #     prefix = 16;
-  #   }];
-  # };
+      enp42s0.ipv4.addresses = [{
+        address = "10.1.1.22";
+        prefixLength = 16;
+      }];
+    };
+    defaultGateway = {
+      address = "10.1.0.1";
+      interface = "enp42s0";
+    };
+  };
 
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH
