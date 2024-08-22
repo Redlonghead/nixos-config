@@ -17,11 +17,8 @@
     moonlight-qt
     thunderbird
     protonmail-bridge-gui
-
-    # Unfree
     obsidian
     discord
-    spotify
     terraform
 
   ]) ++
