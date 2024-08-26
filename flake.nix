@@ -49,34 +49,34 @@
 
       nixosConfigurations = {
 
-        CLB-FRW-LNX = lib.nixosSystem {
+        CLB-FRW-LNX-001 = lib.nixosSystem {
           modules = [
-            ./hosts/CLB-FRW-LNX
+            ./hosts/CLB-FRW-LNX-001
           ];
           inherit specialArgs;
         };
 
-        CLB-TRW-LNX = lib.nixosSystem {
+        CLB-TWR-LNX-001 = lib.nixosSystem {
           modules = [
-            ./hosts/CLB-TRW-LNX
+            ./hosts/CLB-TWR-LNX-001
           ];
           inherit specialArgs;
         };
       };
 
       homeConfigurations = {
-        "beacon@CLB-FRW-LNX" = home-manager.lib.homeManagerConfiguration {
+        "beacon@CLB-FRW-LNX-001" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home/beacon/CLB-FRW-LNX.nix
+            ./home/beacon/CLB-FRW-LNX-001.nix
           ];
           extraSpecialArgs = specialArgs;
         };
         
-        "beacon@CLB-TRW-LNX" = home-manager.lib.homeManagerConfiguration {
+        "beacon@CLB-TWR-LNX" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home/beacon/CLB-TRW-LNX.nix
+            ./home/beacon/CLB-TWR-LNX-001.nix
           ];
           extraSpecialArgs = specialArgs;
         };

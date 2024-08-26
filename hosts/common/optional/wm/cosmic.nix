@@ -26,7 +26,7 @@
 
 # Nixos Config
 
-# CLB-FRW-LNX = lib.nixosSystem {
+# CLB-FRW-LNX-001 = lib.nixosSystem {
 #   modules = [
 #   {
 #     nix.settings = {
@@ -35,7 +35,7 @@
 #     };
 #   }
 #     nixos-cosmic.nixosModules.default
-#     ./hosts/CLB-FRW-LNX
+#     ./hosts/CLB-FRW-LNX-001
 #   ];
 #   inherit specialArgs;
 # };

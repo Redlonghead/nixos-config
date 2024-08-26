@@ -244,11 +244,11 @@
     },
     "nixos-secrets": {
       "locked": {
-        "lastModified": 1724303141,
-        "narHash": "sha256-JcFn0sPeBADFV340uAeDyVLdVYnh3ZDNxkDRTkNzOLg=",
+        "lastModified": 1724713959,
+        "narHash": "sha256-oxw2WwQP9gqgf3i3bGf9rGw3vmsS39FM1XycvIIKVLo=",
         "ref": "refs/heads/main",
-        "rev": "28f8f6159efc01f3efec1ddc08859db9ccc69e15",
-        "revCount": 19,
+        "rev": "875f03ae4b89c73effb3be0a8e46d021e19c0b36",
+        "revCount": 22,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
