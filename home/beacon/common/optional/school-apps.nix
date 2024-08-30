@@ -5,5 +5,6 @@
     ciscoPacketTracer8
     p3x-onenote
     teams-for-linux
+    calibre
   ]);
 }
