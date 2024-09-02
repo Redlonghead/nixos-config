@@ -124,13 +124,12 @@ in
   '';
   home.packages = with pkgs; [
     libsForQt5.qt5ct
-    pkgs.libsForQt5.breeze-qt5
+    libsForQt5.breeze-qt5
     libsForQt5.breeze-icons
   ];
   qt = {
     enable = true;
-    style.package = pkgs.libsForQt5.breeze-qt5;
-    style.name = "breeze-dark";
+    style.package = pkgs.breeze-qt5;
     platformTheme.name = "kde";
   };
 }
