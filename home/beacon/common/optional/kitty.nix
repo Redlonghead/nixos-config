@@ -10,6 +10,6 @@
   };
 
   programs.zsh.shellAliases = {
-    ssh = "kitten ssh";
+    ksh = "kitten ssh";
   };
 }
