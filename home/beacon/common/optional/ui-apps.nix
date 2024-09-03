@@ -4,7 +4,6 @@
 
   home.packages = (with pkgs; [
 
-    floorp
     vlc
     youtube-music
     obs-studio
@@ -24,6 +23,7 @@
   ]) ++
   (with pkgs.unstable; [ 
   
+    floorp
     vscode 
   
   ]);
