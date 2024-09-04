@@ -19,6 +19,7 @@
     obsidian
     discord
     terraform
+    qalculate-qt
 
   ]) ++
   (with pkgs.unstable; [ 

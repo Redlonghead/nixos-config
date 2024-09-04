@@ -28,6 +28,7 @@
     fastfetch
     zip
     unzip
+    libqalculate
 
     #TODO NIX Neovim
     vim
