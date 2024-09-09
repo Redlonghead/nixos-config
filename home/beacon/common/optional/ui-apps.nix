@@ -20,6 +20,7 @@
     discord
     terraform
     qalculate-qt
+    olive-editor
 
   ]) ++
   (with pkgs.unstable; [ 
