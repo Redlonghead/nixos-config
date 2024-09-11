@@ -13,9 +13,9 @@
     package = pkgs.hyprland;
     settings = {
       "monitor" = [
-        # Spirit Monitors
-        "desc:HP Inc. HP E24 G4 CN42173KHX,preferred,0x0,auto"
-        "desc:HP Inc. HP E24 G4 CN42173KJK,preferred,1920x0,auto"
+        # Work Monitors
+        "desc:HP Inc. HP E24 G4 CN42173KHX,preferred,1920x0,auto"
+        "desc:HP Inc. HP E24 G4 CN42173KJK,preferred,0x0,auto"
 
         # Home Monitors
         "desc:Samsung Electric Company SAMSUNG 0x01000E00,preferred,0x0,auto"
