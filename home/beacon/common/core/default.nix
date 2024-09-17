@@ -29,6 +29,7 @@
     zip
     unzip
     libqalculate
+    openldap
 
     #TODO NIX Neovim
     vim
