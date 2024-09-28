@@ -24,12 +24,9 @@
     ranger
     bitwarden-cli
     just
-    protonmail-bridge
     fastfetch
     zip
     unzip
-    libqalculate
-    openldap
 
     #TODO NIX Neovim
     vim
