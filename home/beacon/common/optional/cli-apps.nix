@@ -6,6 +6,7 @@
     protonmail-bridge
     libqalculate
     openldap
+    yubikey-manager
 
   ];
 }

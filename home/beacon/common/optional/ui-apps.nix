@@ -21,6 +21,7 @@
     terraform
     qalculate-qt
     olive-editor
+    yubikey-manager-qt
 
   ]) ++
   (with pkgs.unstable; [ 
