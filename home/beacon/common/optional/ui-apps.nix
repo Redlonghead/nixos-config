@@ -22,6 +22,7 @@
     qalculate-qt
     olive-editor
     yubikey-manager-qt
+    putty
 
   ]) ++
   (with pkgs.unstable; [ 
