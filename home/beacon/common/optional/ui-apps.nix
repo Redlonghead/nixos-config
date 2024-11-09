@@ -23,6 +23,7 @@
     olive-editor
     yubikey-manager-qt
     putty
+    kicad
 
   ]) ++
   (with pkgs.unstable; [ 
