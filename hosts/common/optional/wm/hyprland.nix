@@ -6,6 +6,7 @@
     ./wayland.nix
     ./pipewire.nix
     ./dbus.nix
+    ../style.nix
   ];
 
   environment.systemPackages = with pkgs; [

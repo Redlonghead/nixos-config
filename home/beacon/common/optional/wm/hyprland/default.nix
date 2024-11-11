@@ -6,6 +6,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./waybar.nix
+    ../../style
   ];
 
   wayland.windowManager.hyprland = {

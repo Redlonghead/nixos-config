@@ -34,7 +34,6 @@
     "hosts/common/optional/lt-power.nix"
     "hosts/common/optional/appimage.nix"
     "hosts/common/optional/steam.nix"
-    "hosts/common/optional/style.nix"
 
     ############ User to create ######################
     "hosts/common/users/beacon"
