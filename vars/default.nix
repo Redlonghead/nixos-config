@@ -19,7 +19,7 @@
     name = "Connor Beard";
     email = ""; #TODO add nixos-secrets input
     git-email = "git@beardit.net";
-    theme = "uwunicorn-yt";
+    theme = "atelier-lakeside";
     browser = "firefox";
     editor = "vscode";
     font = "FiraCode";
