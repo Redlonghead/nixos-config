@@ -5,7 +5,7 @@
 #
 #############################################################
 
-{ lib, inputs, configLib, ... }:
+{ lib, inputs, configLib, pkgs, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
 
     ############ NixOS-Secrets Modules ###############
-    inputs.nixos-secrets.nixosModules.wireguard-CT-CLB-FRW-LNX-001
+    inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
   ]
   ++ (map configLib.relativeToRoot [
     ############ Required Configs ####################
@@ -46,16 +46,21 @@
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH
   programs.nix-ld.enable = true; # On for VScode server
 
-  # FRAMEWORK Hardware Stuff
-  services.fwupd.enable = true;
+  services = {
+    tailscale.package = pkgs.unstable.tailscale;
 
+  # FRAMEWORK Hardware Stuff
+    fwupd.enable = true;
+  
   # we need fwupd 1.9.7 to downgrade the fingerprint sensor firmware
-  # services.fwupd.package = (import (builtins.fetchTarball {
+  # fwupd.package = (import (builtins.fetchTarball {
   #   url = "https://github.com/NixOS/nixpkgs/archive/bb2009ca185d97813e75736c2b8d1d8bb81bde05.tar.gz";
   #   sha256 = "sha256:003qcrsq5g5lggfrpq31gcvj82lb065xvr7bpfa8ddsw8x4dnysk";
   # }) {
   #   inherit (pkgs) system;
   # }).fwupd;
 
-  services.fprintd.enable = lib.mkForce false;
+    fprintd.enable = lib.mkForce false;
+  
+  };
 }

@@ -243,12 +243,15 @@
       }
     },
     "nixos-secrets": {
+      "inputs": {
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
       "locked": {
-        "lastModified": 1732050828,
-        "narHash": "sha256-1vLqgXDkj80+7vaFZFyjrBGBIcPyvYRu7Qv7CJjd5I8=",
+        "lastModified": 1733788689,
+        "narHash": "sha256-u8IHL407fdUuu0D9fJYBCJ2hkEOYRtvr3S3iwPWQjFc=",
         "ref": "refs/heads/main",
-        "rev": "19232231ec7aea4c550ebb245ff0d8145a9b3014",
-        "revCount": 24,
+        "rev": "a5b5d853acc30b37759651d29b315eb9367e3b9e",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
@@ -258,6 +261,21 @@
       }
     },
     "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1717179513,
+        "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "63dacb46bf939521bdc93981b4cbb7ecb58427a0",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "24.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-stable_2": {
       "locked": {
         "lastModified": 1717179513,
         "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
@@ -293,7 +311,7 @@
         "home-manager-unstable": "home-manager-unstable",
         "nixos-hardware": "nixos-hardware",
         "nixos-secrets": "nixos-secrets",
-        "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
