@@ -9,7 +9,7 @@
     obs-studio
     remmina
     bitwarden
-    
+
     dolphin
     kdePackages.qtwayland
     kdePackages.qtsvg
@@ -19,7 +19,7 @@
     libreoffice-qt
     hunspell # LibraOffice Spellcheck
     hunspellDicts.en_US
-    
+
     moonlight-qt
     thunderbird
     protonmail-bridge-gui
@@ -33,11 +33,11 @@
     kicad
 
   ]) ++
-  (with pkgs.unstable; [ 
-  
+  (with pkgs.unstable; [
+
     floorp
-    vscode 
-  
+    vscode
+
   ]);
 
   services.mpris-proxy.enable = true;

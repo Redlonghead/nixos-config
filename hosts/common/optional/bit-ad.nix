@@ -1,6 +1,6 @@
 # Join AD: sudo adcli join --domain=bit.beardit.net --user=beacon
 
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 {
   # Packages
@@ -89,8 +89,8 @@
   systemd = {
     services.realmd = {
       description = "Realm Discovery Service";
-      wantedBy = ["multi-user.target"];
-      after = ["network.target"];
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
       serviceConfig = {
         Type = "dbus";
         BusName = "org.freedesktop.realmd";

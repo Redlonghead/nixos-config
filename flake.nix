@@ -72,7 +72,7 @@
           ];
           extraSpecialArgs = specialArgs;
         };
-        
+
         "beacon@CLB-TWR-LNX" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
