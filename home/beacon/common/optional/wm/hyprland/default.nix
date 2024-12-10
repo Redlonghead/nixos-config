@@ -7,6 +7,7 @@
     ./hyprlock.nix
     ./waybar.nix
     ../../style
+    ../cursor.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -140,8 +141,6 @@
       # Default Config stuff
 
       env = [
-        # "XCURSOR_SIZE,24"
-        # "HYPRCURSOR_SIZE,24"
         "NIXOS_OZONE_WL, 1" # for ozone-based and electron apps to run on wayland
         "MOZ_ENABLE_WAYLAND, 1" # for firefox to run on wayland
         "MOZ_WEBRENDER, 1" # for firefox to run on wayland
@@ -172,9 +171,6 @@
           "size" = 3;
           "passes" = 1;
         };
-        "drop_shadow" = "yes";
-        "shadow_range" = 4;
-        "shadow_render_power" = 3;
       }];
 
       animations = [{
