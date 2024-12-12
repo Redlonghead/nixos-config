@@ -4,52 +4,43 @@
 
   home.packages = (with pkgs; [
 
+    # Everything
+    bitwarden
+    discord
+    moonlight-qt
+    obsidian
+    obs-studio
+    protonmail-bridge-gui
+    qalculate-qt
+    remmina
+    thunderbird
     vlc
     youtube-music
-    obs-studio
-    remmina
-    bitwarden
+    yubikey-manager-qt
 
+    # Made by KDE
     dolphin
+    kdePackages.kio-extras
+    kdePackages.kio-fuse
     kdePackages.qtwayland
     kdePackages.qtsvg
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
 
-    libreoffice-qt
-    hunspell # LibraOffice Spellcheck
+    # Libre Office
+    hunspell # Spellcheck
     hunspellDicts.en_US
+    libreoffice-qt
 
-    moonlight-qt
-    thunderbird
-    protonmail-bridge-gui
-    obsidian
-    discord
-    terraform
-    qalculate-qt
-    olive-editor
-    yubikey-manager-qt
-    putty
-    kicad
+    # Remember these apps
+    # kicad
+    # olive-editor
 
   ]) ++
   (with pkgs.unstable; [
 
-    floorp
-    vscode
+    floorp # browser
+    vscode # code editor
+    # until vim is setup
 
   ]);
-
-  services.mpris-proxy.enable = true;
-
-  programs = {
-    zsh = {
-      shellAliases = {
-        tg = "twingate";
-        tgs = "twingate status";
-        tgr = "twingate resources";
-      };
-    };
-  };
 
 }
