@@ -36,6 +36,9 @@
       cl = "clear";
       ncc = "cd ~/src/nixos-config";
       nsc = "cd ~/src/nixos-secrets";
+      tg = "twingate";
+      tgs = "twingate status";
+      ts = "tailscale";
     };
   };
 }
