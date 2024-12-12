@@ -18,6 +18,6 @@
     yubikey-touch-detector.enable = true;
     mpris-proxy.enable = true; # Allows bluetooth devices access to media players
 
-  }
+  };
 
-    }
+}
