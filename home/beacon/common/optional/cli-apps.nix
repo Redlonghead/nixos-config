@@ -3,10 +3,14 @@
 {
   home.packages = with pkgs; [
 
-    protonmail-bridge
+    # Everything
     libqalculate
     openldap
+    protonmail-bridge
     yubikey-manager
+
+    # Remember
+    # terraform
 
   ];
 }

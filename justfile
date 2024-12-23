@@ -10,7 +10,7 @@ default:
 @rebuild-pre:
   git add .
   (cd ../nixos-secrets && git fetch && git rebase) || true
-  nix flake lock --update-input nixos-secrets
+  nix flake update nixos-secrets
 
 # Rebuilds both NixOS & Home Manager
 sync: ns hm

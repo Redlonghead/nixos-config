@@ -86,7 +86,7 @@
   inputs = {
     ########## Main inputs #############
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/24.05";
+    nixpkgs-stable.url = "nixpkgs/release-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager-unstable = {
@@ -95,7 +95,7 @@
     };
 
     home-manager-stable = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -113,7 +113,7 @@
 
     ########## Extra inputs #############
     stylix = {
-      url = "github:danth/stylix/release-24.05";
+      url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
   };
