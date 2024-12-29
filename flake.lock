@@ -221,11 +221,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1733788689,
-        "narHash": "sha256-u8IHL407fdUuu0D9fJYBCJ2hkEOYRtvr3S3iwPWQjFc=",
+        "lastModified": 1735452817,
+        "narHash": "sha256-jq6kWt1+hdFp9jeV3MNvvUXr0RVeOloodWOWwRwriIY=",
         "ref": "refs/heads/main",
-        "rev": "a5b5d853acc30b37759651d29b315eb9367e3b9e",
-        "revCount": 28,
+        "rev": "b58db9f2d6498f4fe277a99496f3102db901f7b0",
+        "revCount": 30,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
@@ -236,16 +236,16 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1717179513,
-        "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
+        "lastModified": 1735426725,
+        "narHash": "sha256-bzwL5IIrnM4LUdi6Nj0/S9P6dkfoQLAqcY8YD2+Lmxo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "63dacb46bf939521bdc93981b4cbb7ecb58427a0",
+        "rev": "6488d4dbbe8d4add3b28970ed0d1448506ab2968",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "ref": "24.05",
+        "ref": "release-24.11",
         "type": "indirect"
       }
     },
