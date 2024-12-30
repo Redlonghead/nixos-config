@@ -29,17 +29,18 @@
       ############ Required Configs ####################
       "hosts/common/core"
 
-      ############ Host-specific optional Config #######
-      "hosts/common/optional/services/bluetooth.nix"
-      "hosts/common/optional/services/openssh.nix"
-      "hosts/common/optional/services/pipewire.nix"
-      "hosts/common/optional/services/printing.nix"
-      "hosts/common/optional/services/syncthing.nix"
-      "hosts/common/optional/brightnessctl.nix"
-      "hosts/common/optional/wm/hyprland.nix"
-      "hosts/common/optional/lt-power.nix"
-      "hosts/common/optional/appimage.nix"
-      "hosts/common/optional/steam.nix"
+    ############ Host-specific optional Config #######
+    "hosts/common/optional/services/bluetooth.nix"
+    "hosts/common/optional/services/openssh.nix"
+    "hosts/common/optional/services/pipewire.nix"
+    "hosts/common/optional/services/printing.nix"
+    "hosts/common/optional/services/syncthing.nix"
+    "hosts/common/optional/brightnessctl.nix"
+    # "hosts/common/optional/wm/hyprland.nix"
+    # "hosts/common/optional/lt-power.nix"
+    "hosts/common/optional/appimage.nix"
+    "hosts/common/optional/steam.nix"
+    "hosts/common/optional/wm/cosmic.nix"
 
       ############ User to create ######################
       "hosts/common/users/beacon"
