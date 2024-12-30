@@ -1,7 +1,7 @@
 {
   description = "Connor's NixOS-config Flake";
 
-  outputs = { self, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-cosmic, ... } @ inputs:
     let
       inherit (self) outputs;
       forAllSystems = inputs.nixpkgs-stable.lib.genAttrs [
@@ -43,9 +43,18 @@
 
       nixosConfigurations = {
 
-        CLB-FRW-LNX-001 = lib.nixosSystem {
+        CLB-FRW-LNX-001 = nixpkgs.lib.nixosSystem {
           modules = [
+            {
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
+
+            nixos-cosmic.nixosModules.default
             ./hosts/CLB-FRW-LNX-001
+
           ];
           inherit specialArgs;
         };
@@ -110,6 +119,10 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    nixpkgs.follows = "nixos-cosmic/nixpkgs-stable"; # NOTE: change "nixpkgs" to "nixpkgs-stable" to use stable NixOS release
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
 }
