@@ -1,6 +1,5 @@
 {
   pkgs,
-  userSettings,
   ...
 }:
 
@@ -24,7 +23,7 @@ in
     baseUrl = sops.url;
     dataDir = "/var/lib/freshrss";
     authType = "http_auth";
-    defaultuser = userSettings.username;
+    defaultuser = "server";
     passwordFile = ""; # SOPS file
   };
 
