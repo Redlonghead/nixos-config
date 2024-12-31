@@ -11,7 +11,7 @@ in
   users.users.${configVars.userSettings.username} = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."users/${configVars.userSettings.username}/pass".path;
-    description = configVars.userSettings.name;
+    description = "Connor";
     packages = [ pkgs.home-manager ];
 
     extraGroups = [

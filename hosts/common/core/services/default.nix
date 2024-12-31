@@ -3,6 +3,6 @@
 {
   #FIXME Called default.nix for the configlib.scanPaths 
 
-  time.timeZone = configVars.systemSettings.timezone;
+  time.timeZone = "America/Chicago";
   services.timesyncd.enable = true;
 }

@@ -39,6 +39,13 @@
 
   ]);
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+    systemd-boot.configurationLimit = 10; # Limits amount of configs on boot screen
+  };
+
   networking = {
     hostName = "CLB-TWR-LNX-001";
     # interfaces = {

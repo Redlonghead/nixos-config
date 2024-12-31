@@ -1,16 +1,16 @@
-{ configVars, ... }:
+{ ... }:
 
 {
-  i18n.defaultLocale = configVars.systemSettings.locale;
+  i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = configVars.systemSettings.locale;
-    LC_IDENTIFICATION = configVars.systemSettings.locale;
-    LC_MEASUREMENT = configVars.systemSettings.locale;
-    LC_MONETARY = configVars.systemSettings.locale;
-    LC_NAME = configVars.systemSettings.locale;
-    LC_NUMERIC = configVars.systemSettings.locale;
-    LC_PAPER = configVars.systemSettings.locale;
-    LC_TELEPHONE = configVars.systemSettings.locale;
-    LC_TIME = configVars.systemSettings.locale;
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 }

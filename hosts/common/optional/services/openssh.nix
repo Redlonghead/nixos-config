@@ -1,4 +1,4 @@
-{ configVars, inputs, lib, ... }:
+{ inputs, lib, ... }:
 
 {
   services.openssh = {

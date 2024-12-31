@@ -14,7 +14,7 @@
       specialArgs = { inherit inputs outputs configVars configLib; };
 
       pkgs = import inputs.nixpkgs-stable {
-        system = configVars.systemSettings.system;
+        system = "x86_64-linux";
         config = {
           allowUnfree = true;
         };
@@ -32,20 +32,14 @@
 
       # Custom packages to be shared or upstreamed.
       packages = forAllSystems
-        (system:
-          let pkgs = inputs.nixpkgs-stable.legacyPackages.${configVars.systemSettings.system};
-          in import ./pkgs { inherit pkgs; }
-        );
+        (system: import ./pkgs { inherit pkgs; });
 
       # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
       formatter = forAllSystems (system: pkgs.nixpkgs-fmt);
 
       # Shell configured with packages that are typically only needed when working on or with nix-config.
       devShells = forAllSystems
-        (system:
-          let pkgs = inputs.nixpkgs-stable.legacyPackages.${configVars.systemSettings.system};
-          in import ./shell.nix { inherit pkgs; }
-        );
+        (system: import ./shell.nix { inherit pkgs; });
 
       nixosConfigurations = {
 

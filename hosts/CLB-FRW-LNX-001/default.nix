@@ -40,6 +40,13 @@
 
   ]);
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+    systemd-boot.configurationLimit = 10; # Limits amount of configs on boot screen
+  };
+
   networking.hostName = "CLB-FRW-LNX-001";
 
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host

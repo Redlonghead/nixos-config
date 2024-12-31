@@ -1,4 +1,4 @@
-{ inputs, outputs, configLib, configVars, ... }: {
+{ inputs, outputs, configLib, ... }: {
   imports = (configLib.scanPaths ./.)
     ++ (builtins.attrValues outputs.nixosModules);
 
@@ -16,18 +16,6 @@
     config = {
       allowUnfree = true;
     };
-  };
-
-  # Bootloader
-  # Use systemd-boot if uefi, default to grub otherwise
-  boot.loader = {
-    systemd-boot.enable = if (configVars.systemSettings.bootMode == "uefi") then true else false;
-    efi.canTouchEfiVariables = if (configVars.systemSettings.bootMode == "uefi") then true else false;
-    efi.efiSysMountPoint = configVars.systemSettings.bootMountPath;
-    systemd-boot.configurationLimit = 10; # Limits amount of configs on boot screen
-    # does nothing if running bios rather than uefi
-    grub.enable = if (configVars.systemSettings.bootMode == "uefi") then false else true;
-    grub.device = configVars.systemSettings.grubDevice; # does nothing if running uefi rather than bios
   };
 
   # Networking
