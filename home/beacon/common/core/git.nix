@@ -1,6 +1,5 @@
 {
   pkgs,
-  configVars,
   ...
 }:
 
@@ -12,11 +11,11 @@
     userEmail = "git@beardit.net";
     signing = {
       signByDefault = true;
-      key = "/home/" + configVars.userSettings.username + "/.ssh/id_beacon.pub";
+      key = "/home/beacon/.ssh/id_beacon.pub";
     };
     extraConfig = {
       init.defaultBranch = "main";
-      safe.directory = "/home/" + configVars.userSettings.username + "/.dotfiles";
+      safe.directory = "/home/beacon/.dotfiles";
       gpg.format = "ssh";
     };
   };

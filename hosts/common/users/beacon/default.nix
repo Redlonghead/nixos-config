@@ -1,6 +1,5 @@
 {
   lib,
-  configVars,
   config,
   pkgs,
   ...
@@ -12,12 +11,12 @@ let
 in
 {
   # Define a user account.
-  sops.secrets."users/${configVars.userSettings.username}/pass".neededForUsers = true;
+  sops.secrets."users/beacon/pass".neededForUsers = true;
   users.mutableUsers = false; # required for sops
 
-  users.users.${configVars.userSettings.username} = {
+  users.users.beacon = {
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."users/${configVars.userSettings.username}/pass".path;
+    hashedPasswordFile = config.sops.secrets."users/beacon/pass".path;
     description = "Connor";
     packages = [ pkgs.home-manager ];
 
@@ -39,7 +38,7 @@ in
     shell = pkgs.zsh; # default shell
   };
 
-  # home-manager.users.${configVars.userSettings.username} = import (configLib.relativeToRoot "home/${configVars.userSettings.username}/${config.networking.hostName}.nix");
+  # home-manager.users.beacon = import (configLib.relativeToRoot "home/beacon/${config.networking.hostName}.nix");
 
   # Fonts
   fonts.fontDir.enable = true;
