@@ -1,4 +1,4 @@
-{ config, lib, pkgs, outputs, configLib, configVars, ... }:
+{ config, lib, pkgs, outputs, configLib, ... }:
 {
   imports = (configLib.scanPaths ./.)
     ++ (builtins.attrValues outputs.homeManagerModules);
@@ -7,8 +7,8 @@
   # Default Info / Settings
   news.display = "silent";
   home = {
-    username = lib.mkDefault configVars.userSettings.username;
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    username = "beacon";
+    homeDirectory = lib.mkDefault "/home/beacon";
     stateVersion = lib.mkDefault "23.11"; # Don't change.
     sessionVariables = {
       FLAKE = "$HOME/nix-config";
