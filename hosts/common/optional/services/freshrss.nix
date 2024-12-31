@@ -1,4 +1,4 @@
-{ pkgs, userSettings, ... }:
+{ pkgs, ... }:
 let
 
   #TODO finish this service
@@ -19,7 +19,7 @@ in
     baseUrl = sops.url;
     dataDir = "/var/lib/freshrss";
     authType = "http_auth";
-    defaultuser = userSettings.username;
+    defaultuser = "server";
     passwordFile = ""; # SOPS file
   };
 
