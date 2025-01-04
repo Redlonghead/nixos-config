@@ -221,11 +221,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1735452817,
-        "narHash": "sha256-jq6kWt1+hdFp9jeV3MNvvUXr0RVeOloodWOWwRwriIY=",
+        "lastModified": 1735974904,
+        "narHash": "sha256-KFjMOjaRROel/B1xP/Urtntf5ZockB+vdkft8BcJGko=",
         "ref": "refs/heads/main",
-        "rev": "b58db9f2d6498f4fe277a99496f3102db901f7b0",
-        "revCount": 30,
+        "rev": "6e20007a1cc3aa2b0f427eb20f5c79496693b8c5",
+        "revCount": 31,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
