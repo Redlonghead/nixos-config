@@ -28,7 +28,7 @@
     "hosts/common/optional/services/pipewire.nix"
     "hosts/common/optional/services/printing.nix"
     "hosts/common/optional/services/syncthing.nix"
-    "hosts/common/optional/services/twingate.nix"
+    # "hosts/common/optional/services/twingate.nix"
     "hosts/common/optional/brightnessctl.nix"
     "hosts/common/optional/wm/hyprland.nix"
     "hosts/common/optional/lt-power.nix"
