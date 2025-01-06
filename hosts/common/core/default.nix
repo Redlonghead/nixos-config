@@ -20,8 +20,20 @@
 
   # Networking
   networking = {
-    networkmanager.enable = true;
+    nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
+
     enableIPv6 = false;
+  };
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    dnsovertls = "true";
   };
 
   nix.settings = {
