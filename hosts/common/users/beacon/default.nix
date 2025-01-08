@@ -1,7 +1,13 @@
-{ lib, configVars, configLib, config, pkgs, ... }:
+{
+  lib,
+  configVars,
+  config,
+  pkgs,
+  ...
+}:
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  pubKeys = lib.filesystem.listFilesRecursive (./keys);
+  pubKeys = lib.filesystem.listFilesRecursive ./keys;
 in
 {
   # Define a user account.
@@ -14,15 +20,17 @@ in
     description = "Connor";
     packages = [ pkgs.home-manager ];
 
-    extraGroups = [
-      "wheel"
-    ] ++ ifTheyExist [
-      "audio"
-      "video"
-      "docker"
-      "git"
-      "networkmanager"
-    ];
+    extraGroups =
+      [
+        "wheel"
+      ]
+      ++ ifTheyExist [
+        "audio"
+        "video"
+        "docker"
+        "git"
+        "networkmanager"
+      ];
 
     # These get placed into /etc/ssh/authorized_keys.d/<name> on nixos
     openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
@@ -35,7 +43,12 @@ in
   # Fonts
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "DroidSansMono"
+      ];
+    })
   ];
 
   # Default tools on all systems

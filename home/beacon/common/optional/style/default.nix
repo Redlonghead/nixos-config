@@ -1,10 +1,28 @@
-{ config, lib, pkgs, inputs, configVars, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  configVars,
+  ...
+}:
 
 let
-  themePath = "../../../../../../themes" + ("/" + configVars.userSettings.theme + "/" + configVars.userSettings.theme) + ".yaml";
-  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../../../themes" + ("/" + configVars.userSettings.theme) + "/polarity.txt"));
-  backgroundUrl = builtins.readFile (./. + "../../../../../../themes" + ("/" + configVars.userSettings.theme) + "/backgroundurl.txt");
-  backgroundSha256 = builtins.readFile (./. + "../../../../../../themes/" + ("/" + configVars.userSettings.theme) + "/backgroundsha256.txt");
+  themePath =
+    "../../../../../../themes"
+    + ("/" + configVars.userSettings.theme + "/" + configVars.userSettings.theme)
+    + ".yaml";
+  themePolarity = lib.removeSuffix "\n" (
+    builtins.readFile (
+      ./. + "../../../../../../themes" + ("/" + configVars.userSettings.theme) + "/polarity.txt"
+    )
+  );
+  backgroundUrl = builtins.readFile (
+    ./. + "../../../../../../themes" + ("/" + configVars.userSettings.theme) + "/backgroundurl.txt"
+  );
+  backgroundSha256 = builtins.readFile (
+    ./. + "../../../../../../themes/" + ("/" + configVars.userSettings.theme) + "/backgroundsha256.txt"
+  );
 in
 {
 
@@ -77,15 +95,23 @@ in
   stylix.targets.kitty.enable = true;
   stylix.targets.gtk.enable = true;
   programs.feh.enable = true;
-  home.file.".fehbg-stylix".text = ''
-    #!/bin/sh
-    feh --no-fehbg --bg-fill '' + config.stylix.image + '';
-  '';
+  home.file.".fehbg-stylix".text =
+    ''
+      #!/bin/sh
+      feh --no-fehbg --bg-fill ''
+    + config.stylix.image
+    + ''
+      ;
+    '';
   home.file.".fehbg-stylix".executable = true;
-  home.file.".swaybg-stylix".text = ''
-    #!/bin/sh
-    swaybg -m fill -i '' + config.stylix.image + '';
-  '';
+  home.file.".swaybg-stylix".text =
+    ''
+      #!/bin/sh
+      swaybg -m fill -i ''
+    + config.stylix.image
+    + ''
+      ;
+    '';
   home.file.".swaybg-stylix".executable = true;
   home.file.".swayidle-stylix".text = ''
     #!/bin/sh
@@ -111,15 +137,22 @@ in
     };
     ".config/qt5ct/qt5ct.conf".text = pkgs.lib.mkBefore (builtins.readFile ./qt5ct.conf);
   };
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = '' + config.stylix.image + ''
+  home.file.".config/hypr/hyprpaper.conf".text =
+    ''preload = ''
+    + config.stylix.image
+    + ''
 
-    wallpaper = eDP-1,'' + config.stylix.image + ''
+      wallpaper = eDP-1,''
+    + config.stylix.image
+    + ''
 
-    wallpaper = HDMI-A-1,'' + config.stylix.image + ''
+      wallpaper = HDMI-A-1,''
+    + config.stylix.image
+    + ''
 
-    wallpaper = DP-1,'' + config.stylix.image + ''
-  '';
+      wallpaper = DP-1,''
+    + config.stylix.image
+    + '''';
   home.packages = with pkgs; [
     libsForQt5.qt5ct
     libsForQt5.breeze-qt5

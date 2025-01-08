@@ -1,7 +1,14 @@
-{ config, lib, pkgs, outputs, configLib, configVars, ... }:
 {
-  imports = (configLib.scanPaths ./.)
-    ++ (builtins.attrValues outputs.homeManagerModules);
+  config,
+  lib,
+  pkgs,
+  outputs,
+  configLib,
+  configVars,
+  ...
+}:
+{
+  imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.homeManagerModules);
   services.ssh-agent.enable = true;
 
   # Default Info / Settings
@@ -17,24 +24,26 @@
     };
   };
 
-  home.packages = (with pkgs; [
-
-    localsend
-    sops
-    ranger
-    nixd
+  home.packages = (
+    with pkgs;
+    [
+      localsend
+      sops
+      ranger
+      nixd
       nixfmt-rfc-style
-    bitwarden-cli
-    just
-    fastfetch
-    zip
-    unzip
+      bitwarden-cli
+      just
+      fastfetch
+      zip
+      unzip
 
-    #TODO NIX Neovim
-    vim
-    neovim
+      #TODO NIX Neovim
+      vim
+      neovim
 
-  ]); # ++
+    ]
+  ); # ++
   # (with pkgs.unstable; [ STUFF ])
 
   nixpkgs = {

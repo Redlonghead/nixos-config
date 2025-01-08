@@ -10,9 +10,7 @@
 
 }
 
-
-
-# TODO add Cosmic as a display manager 
+# TODO add Cosmic as a display manager
 # Below adds within a flake as its not in upstream yet
 # The greeter does not work yet and only shows very basic background and logout GUI rn
 # Can't run anything it seems

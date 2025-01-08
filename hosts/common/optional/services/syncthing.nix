@@ -1,4 +1,9 @@
-{ inputs, pkgs, config, configVars, ... }:
+{
+  pkgs,
+  config,
+  configVars,
+  ...
+}:
 
 {
 
@@ -34,7 +39,11 @@
     cert = config.sops.secrets."syncthing/${config.networking.hostName}/cert".path;
 
     settings = {
-      devices = { "BIT-SNY-DSM-001" = { id = "0AM0X7P-J0EACFU-HCJMJER-ZEBN7DK-KE7TMBX-YEZTM4U-Y22JDPP-KIPC3QU"; }; };
+      devices = {
+        "BIT-SNY-DSM-001" = {
+          id = "0AM0X7P-J0EACFU-HCJMJER-ZEBN7DK-KE7TMBX-YEZTM4U-Y22JDPP-KIPC3QU";
+        };
+      };
       folders = {
         "CB-SRC" = {
           path = "~/src";

@@ -1,7 +1,8 @@
 {
   description = "Connor's NixOS-config Flake";
 
-  outputs = { self, ... } @ inputs:
+  outputs =
+    { self, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = inputs.nixpkgs-stable.lib.genAttrs [
@@ -11,7 +12,14 @@
       inherit (inputs.nixpkgs-stable) lib;
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
-      specialArgs = { inherit inputs outputs configVars configLib; };
+      specialArgs = {
+        inherit
+          inputs
+          outputs
+          configVars
+          configLib
+          ;
+      };
 
       pkgs = import inputs.nixpkgs-stable {
         system = "x86_64-linux";
@@ -31,15 +39,13 @@
       overlays = import ./overlays { inherit inputs outputs; };
 
       # Custom packages to be shared or upstreamed.
-      packages = forAllSystems
-        (system: import ./pkgs { inherit pkgs; });
+      packages = forAllSystems (system: import ./pkgs { inherit pkgs; });
 
       # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
-      formatter = forAllSystems (system: pkgs.nixpkgs-fmt);
+      formatter = forAllSystems (system: pkgs.nixfmt-rfc-style);
 
       # Shell configured with packages that are typically only needed when working on or with nix-config.
-      devShells = forAllSystems
-        (system: import ./shell.nix { inherit pkgs; });
+      devShells = forAllSystems (system: import ./shell.nix { inherit pkgs; });
 
       nixosConfigurations = {
 

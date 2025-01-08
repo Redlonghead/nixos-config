@@ -1,4 +1,4 @@
-#FIXME Twingate daemon will keep failing when rebuilding. 
+#FIXME Twingate daemon will keep failing when rebuilding.
 
 { pkgs, ... }:
 

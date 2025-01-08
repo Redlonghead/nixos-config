@@ -8,7 +8,10 @@ let
     url = "https://github.com/nixos/nixpkgs/archive/${lock.rev}.tar.gz";
     sha256 = lock.narHash;
   };
-  pkgs = import nixpkgs { config = { }; overlays = [ ]; };
+  pkgs = import nixpkgs {
+    config = { };
+    overlays = [ ];
+  };
 in
 
 pkgs.mkShellNoCC {

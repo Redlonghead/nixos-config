@@ -1,11 +1,11 @@
-{ inputs, lib }:
+{ ... }:
 
 {
 
-  userSettings = rec {
+  userSettings = {
     theme = "atelier-lakeside";
     font = "FiraCode";
-    username = "beacon"; #TODO remove??
+    username = "beacon"; # TODO remove??
 
   };
 }

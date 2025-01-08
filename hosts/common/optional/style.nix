@@ -1,11 +1,30 @@
-{ lib, pkgs, inputs, configVars, configLib, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  configVars,
+  ...
+}:
 
 let
-  themePath = "../../../../themes/" + configVars.userSettings.theme + "/" + configVars.userSettings.theme + ".yaml";
-  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + configVars.userSettings.theme) + "/polarity.txt"));
+  themePath =
+    "../../../../themes/"
+    + configVars.userSettings.theme
+    + "/"
+    + configVars.userSettings.theme
+    + ".yaml";
+  themePolarity = lib.removeSuffix "\n" (
+    builtins.readFile (
+      ./. + "../../../../themes" + ("/" + configVars.userSettings.theme) + "/polarity.txt"
+    )
+  );
   myLightDMTheme = if themePolarity == "light" then "Adwaita" else "Adwaita-dark";
-  backgroundUrl = builtins.readFile (./. + "../../../../themes" + ("/" + configVars.userSettings.theme) + "/backgroundurl.txt");
-  backgroundSha256 = builtins.readFile (./. + "../../../../themes/" + ("/" + configVars.userSettings.theme) + "/backgroundsha256.txt");
+  backgroundUrl = builtins.readFile (
+    ./. + "../../../../themes" + ("/" + configVars.userSettings.theme) + "/backgroundurl.txt"
+  );
+  backgroundSha256 = builtins.readFile (
+    ./. + "../../../../themes/" + ("/" + configVars.userSettings.theme) + "/backgroundsha256.txt"
+  );
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];

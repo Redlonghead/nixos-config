@@ -1,8 +1,8 @@
-{ configVars, ... }:
+{ ... }:
 {
   imports = [
     #################### Required Configs ####################
-    common/core #required
+    common/core # required
 
     #################### Host-specific Optional Configs ####################
     common/optional/style
@@ -10,7 +10,6 @@
     common/optional/kitty.nix
     common/optional/ui-apps.nix
     common/optional/cli-apps.nix
-
 
   ];
 

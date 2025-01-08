@@ -5,40 +5,47 @@
 #
 #############################################################
 
-{ lib, inputs, configLib, pkgs, ... }:
+{
+  lib,
+  inputs,
+  configLib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [
-    ############ Every Host Needs This ###############
-    ./hardware-configuration.nix
+  imports =
+    [
+      ############ Every Host Needs This ###############
+      ./hardware-configuration.nix
 
-    ############ Hardware Modules ####################
-    inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
+      ############ Hardware Modules ####################
+      inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
 
-    ############ NixOS-Secrets Modules ###############
-    inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
-  ]
-  ++ (map configLib.relativeToRoot [
-    ############ Required Configs ####################
-    "hosts/common/core"
+      ############ NixOS-Secrets Modules ###############
+      inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
+    ]
+    ++ (map configLib.relativeToRoot [
+      ############ Required Configs ####################
+      "hosts/common/core"
 
-    ############ Host-specific optional Config #######
-    "hosts/common/optional/services/bluetooth.nix"
-    "hosts/common/optional/services/openssh.nix"
-    "hosts/common/optional/services/pipewire.nix"
-    "hosts/common/optional/services/printing.nix"
-    "hosts/common/optional/services/syncthing.nix"
-    # "hosts/common/optional/services/twingate.nix"
-    "hosts/common/optional/brightnessctl.nix"
-    "hosts/common/optional/wm/hyprland.nix"
-    "hosts/common/optional/lt-power.nix"
-    "hosts/common/optional/appimage.nix"
-    "hosts/common/optional/steam.nix"
+      ############ Host-specific optional Config #######
+      "hosts/common/optional/services/bluetooth.nix"
+      "hosts/common/optional/services/openssh.nix"
+      "hosts/common/optional/services/pipewire.nix"
+      "hosts/common/optional/services/printing.nix"
+      "hosts/common/optional/services/syncthing.nix"
+      # "hosts/common/optional/services/twingate.nix"
+      "hosts/common/optional/brightnessctl.nix"
+      "hosts/common/optional/wm/hyprland.nix"
+      "hosts/common/optional/lt-power.nix"
+      "hosts/common/optional/appimage.nix"
+      "hosts/common/optional/steam.nix"
 
-    ############ User to create ######################
-    "hosts/common/users/beacon"
+      ############ User to create ######################
+      "hosts/common/users/beacon"
 
-  ]);
+    ]);
 
   boot.loader = {
     systemd-boot.enable = true;

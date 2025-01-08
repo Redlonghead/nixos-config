@@ -1,43 +1,47 @@
 #############################################################
 #
-#  CLB-TWR-LNX-001 - Personal Desktop at home 
+#  CLB-TWR-LNX-001 - Personal Desktop at home
 #    with Windows Dual Booting
 #  NixOS
 #
 #############################################################
 
-{ lib, inputs, configLib, ... }:
+{
+  configLib,
+  ...
+}:
 
 {
-  imports = [
-    ############ Every Host Needs This ###############
-    ./hardware-configuration.nix
+  imports =
+    [
+      ############ Every Host Needs This ###############
+      ./hardware-configuration.nix
 
-    ############ Hardware Modules ####################
+      ############ Hardware Modules ####################
 
-    ############ NixOS-Secrets Modules ###############
+      ############ NixOS-Secrets Modules ###############
 
-  ]
-  ++ (map configLib.relativeToRoot [
-    ############ Required Configs ####################
-    "hosts/common/core"
+    ]
+    ++ (map configLib.relativeToRoot [
+      ############ Required Configs ####################
+      "hosts/common/core"
 
-    ############ Host-specific optional Config #######
-    "hosts/common/optional/services/bluetooth.nix"
-    "hosts/common/optional/services/openssh.nix"
-    "hosts/common/optional/services/pipewire.nix"
-    "hosts/common/optional/services/printing.nix"
-    "hosts/common/optional/services/syncthing.nix"
-    "hosts/common/optional/brightnessctl.nix"
-    "hosts/common/optional/wm/hyprland.nix"
-    "hosts/common/optional/appimage.nix"
-    # "hosts/common/optional/steam.nix"
-    "hosts/common/optional/style.nix"
+      ############ Host-specific optional Config #######
+      "hosts/common/optional/services/bluetooth.nix"
+      "hosts/common/optional/services/openssh.nix"
+      "hosts/common/optional/services/pipewire.nix"
+      "hosts/common/optional/services/printing.nix"
+      "hosts/common/optional/services/syncthing.nix"
+      "hosts/common/optional/brightnessctl.nix"
+      "hosts/common/optional/wm/hyprland.nix"
+      "hosts/common/optional/appimage.nix"
+      # "hosts/common/optional/steam.nix"
+      "hosts/common/optional/style.nix"
 
-    ############ User to create ######################
-    "hosts/common/users/beacon"
+      ############ User to create ######################
+      "hosts/common/users/beacon"
 
-  ]);
+    ]);
 
   boot.loader = {
     systemd-boot.enable = true;

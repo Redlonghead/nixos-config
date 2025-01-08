@@ -1,4 +1,8 @@
-{ config, pkgs, configVars, ... }:
+{
+  pkgs,
+  configVars,
+  ...
+}:
 
 {
   programs.git = {

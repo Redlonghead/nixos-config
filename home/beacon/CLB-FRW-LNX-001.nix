@@ -1,8 +1,8 @@
-{ configVars, ... }:
+{ ... }:
 {
   imports = [
     #################### Required Configs ####################
-    common/core #required
+    common/core # required
 
     #################### Host-specific Optional Configs ####################
     common/optional/wm/hyprland
