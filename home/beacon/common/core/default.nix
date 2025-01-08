@@ -22,6 +22,7 @@
     localsend
     sops
     ranger
+    nixd
     bitwarden-cli
     just
     fastfetch
