@@ -23,6 +23,7 @@
     sops
     ranger
     nixd
+      nixfmt-rfc-style
     bitwarden-cli
     just
     fastfetch
