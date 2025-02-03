@@ -18,6 +18,7 @@
       vlc
       youtube-music
       yubikey-manager-qt
+      keepassxc
 
       # Made by KDE
       dolphin

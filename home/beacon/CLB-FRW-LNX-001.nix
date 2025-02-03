@@ -9,7 +9,6 @@
     common/optional/kitty.nix
     common/optional/ui-apps.nix
     common/optional/cli-apps.nix
-    common/optional/school-apps.nix
 
   ];
 
