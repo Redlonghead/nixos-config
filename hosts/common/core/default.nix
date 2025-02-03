@@ -1,12 +1,11 @@
 {
   outputs,
   configLib,
+  pkgs,
   ...
 }:
 {
   imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.nixosModules);
-
-  services.yubikey-agent.enable = true;
 
   security.sudo.extraConfig = ''
     Defaults timestamp_timeout=120 # only ask for password every 2h
@@ -36,11 +35,20 @@
     enableIPv6 = false;
   };
 
-  services.resolved = {
+  services = {
+    yubikey-agent.enable = true;
+
+    resolved = {
+      enable = true;
+      dnssec = "true";
+      domains = [ "~." ];
+      dnsovertls = "true";
+    };
+  };
+
+  programs.htop = {
     enable = true;
-    dnssec = "true";
-    domains = [ "~." ];
-    dnsovertls = "true";
+    package = pkgs.htop;
   };
 
   nix.settings = {
