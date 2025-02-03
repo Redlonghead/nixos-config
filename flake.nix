@@ -2,12 +2,14 @@
   description = "Connor's NixOS-config Flake";
 
   outputs =
-    { self, ... }@inputs:
+    { self, systems, ... }@inputs:
     let
       inherit (self) outputs;
-      forAllSystems = inputs.nixpkgs-stable.lib.genAttrs [
-        "x86_64-linux"
-      ];
+      forAllSystems =
+        f:
+        inputs.nixpkgs-stable.lib.genAttrs (import systems) (
+          system: f inputs.nixpkgs-stable.legacyPackages.${system}
+        );
 
       inherit (inputs.nixpkgs-stable) lib;
       configVars = import ./vars { inherit inputs lib; };
@@ -29,6 +31,33 @@
       };
 
       home-manager = inputs.home-manager-stable;
+
+      # Eval the treefmt modules
+      treefmtEval = forAllSystems (
+        pkgs:
+        inputs.treefmt-nix.lib.evalModule pkgs {
+          projectRootFile = "flake.nix";
+          programs = {
+            nixfmt.enable = true;
+            yamlfmt.enable = true;
+            just.enable = true;
+            mdformat = {
+              enable = true;
+              settings.number = true;
+            };
+          };
+
+          settings.global.excludes = [
+            ".envrc"
+            "themes/*"
+            "*.mustache"
+            "*.jpg"
+            "*.pub"
+            "*.conf"
+          ];
+        }
+      );
+
     in
     {
       # Custom modules to enable special functionality for nixos or home-manager oriented configs.
@@ -42,7 +71,12 @@
       packages = forAllSystems (system: import ./pkgs { inherit pkgs; });
 
       # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
-      formatter = forAllSystems (system: pkgs.nixfmt-rfc-style);
+      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+
+      # Nix Flake checker available through 'nix flake check'
+      checks = forAllSystems (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
 
       # Shell configured with packages that are typically only needed when working on or with nix-config.
       devShells = forAllSystems (system: import ./shell.nix { inherit pkgs; });
@@ -116,6 +150,8 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
 }
