@@ -30,14 +30,16 @@
     ];
 
     shellAliases = {
-      la = "ls -la";
-      ll = "ls -l";
-      ".." = "cd ..";
       cl = "clear";
+      ls = "eza";
+      la = "eza -la";
+      ll = "eza -l";
+      ".." = "cd ..";
       ncc = "cd ~/src/nixos-config";
       nsc = "cd ~/src/nixos-secrets";
-      tg = "twingate";
-      tgs = "twingate status";
+      ranger = "yazi";
+      ff = "fastfetch";
+      cat = "bat";
       ts = "tailscale";
     };
   };

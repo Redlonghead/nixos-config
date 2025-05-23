@@ -29,7 +29,6 @@
     [
       localsend
       sops
-      ranger
       nixd
       nixfmt-rfc-style
       bitwarden-cli
@@ -57,6 +56,32 @@
 
   programs = {
     home-manager.enable = true;
+
+    bat = {
+      enable = true;
+      package = pkgs.bat;
+    };
+
+    eza = {
+      enable = true;
+      package = pkgs.eza;
+      enableZshIntegration = true;
+      git = true;
+      icons = "always";
+      colors = "auto";
+    };
+
+    yazi = {
+      enable = true;
+      package = pkgs.yazi;
+      enableZshIntegration = true;
+    };
+
+    zoxide = {
+      enable = true;
+      package = pkgs.zoxide;
+      enableZshIntegration = true;
+    };
   };
 
   # Nicely reload system units when changing configs
