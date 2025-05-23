@@ -14,11 +14,12 @@
       protonmail-bridge-gui
       qalculate-qt
       remmina
-      thunderbird
+      # thunderbird
       vlc
       youtube-music
       yubikey-manager-qt
       keepassxc
+      modrinth-app
 
       # Made by KDE
       dolphin
