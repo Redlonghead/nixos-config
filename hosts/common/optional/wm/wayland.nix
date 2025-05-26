@@ -15,16 +15,7 @@
   environment.systemPackages = with pkgs; [
     wayland
     waydroid
-    (sddm-chili-theme.override {
-      themeConfig = {
-        background = config.stylix.image;
-        ScreenWidth = 1920;
-        ScreenHeight = 1080;
-        blur = true;
-        recursiveBlurLoops = 3;
-        recursiveBlurRadius = 5;
-      };
-    })
+    (elegant-sddm.override { themeConfig.General.background = config.stylix.image; })
   ];
 
   # Configure xwayland
@@ -38,10 +29,10 @@
     };
     displayManager.sddm = {
       enable = true;
-      # wayland.enable = true;
+      wayland.enable = true;
       enableHidpi = true;
-      theme = "chili";
-      package = pkgs.kdePackages.sddm;
+      theme = "Elegant";
+      package = pkgs.libsForQt5.sddm;
     };
   };
 
