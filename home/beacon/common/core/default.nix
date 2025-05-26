@@ -60,6 +60,7 @@
     bat = {
       enable = true;
       package = pkgs.bat;
+      config.theme = "Visual Studio Dark+";
     };
 
     eza = {
