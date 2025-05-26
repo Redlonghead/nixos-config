@@ -153,14 +153,12 @@ in
       wallpaper = DP-1,''
     + config.stylix.image
     + '''';
-  home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    libsForQt5.breeze-qt5
-    libsForQt5.breeze-icons
-  ];
+
   qt = {
     enable = true;
-    style.package = pkgs.kdePackages.breeze-gtk;
-    platformTheme.name = "kde";
+    style = {
+      name = "breeze";
+      package = pkgs.kdePackages.breeze;
+    };
   };
 }
