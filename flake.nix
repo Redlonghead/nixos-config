@@ -62,7 +62,7 @@
     {
       # Custom modules to enable special functionality for nixos or home-manager oriented configs.
       nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      homeModules = import ./modules/home-manager;
 
       # Custom modifications/overrides to upstream packages.
       overlays = import ./overlays { inherit inputs outputs; };
@@ -120,7 +120,7 @@
   inputs = {
     ########## Main inputs #############
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/release-24.11";
+    nixpkgs-stable.url = "nixpkgs/release-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager-unstable = {
@@ -129,7 +129,7 @@
     };
 
     home-manager-stable = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -147,7 +147,7 @@
 
     ########## Extra inputs #############
     stylix = {
-      url = "github:danth/stylix/release-24.11";
+      url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 

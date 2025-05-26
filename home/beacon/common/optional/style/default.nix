@@ -26,7 +26,7 @@ let
 in
 {
 
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+  imports = [ inputs.stylix.homeModules.stylix ];
 
   home.file.".currenttheme".text = configVars.userSettings.theme;
   stylix.autoEnable = false;
@@ -160,7 +160,7 @@ in
   ];
   qt = {
     enable = true;
-    style.package = pkgs.breeze-qt5;
+    style.package = pkgs.kdePackages.breeze-gtk;
     platformTheme.name = "kde";
   };
 }

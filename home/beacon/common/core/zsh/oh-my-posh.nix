@@ -1,14 +1,13 @@
 { pkgs, ... }:
 
 {
-  # I know about home manager's config for oh my posh
-  # but I cannot get the settings option to work so I
-  # just went the round about way of things
 
   home.packages = with pkgs; [
     oh-my-posh
   ];
 
+  # TODO Fix option deprecation
+  # Need to use Oh-my-posh config at this point
   programs.zsh.initExtra = ''eval "$(oh-my-posh init zsh --config "/home/beacon/.config/oh-my-posh/config.yaml")"'';
 
   home.file."config.yaml" = {

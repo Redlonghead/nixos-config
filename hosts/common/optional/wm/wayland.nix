@@ -41,7 +41,7 @@
       # wayland.enable = true;
       enableHidpi = true;
       theme = "chili";
-      package = pkgs.sddm;
+      package = pkgs.kdePackages.sddm;
     };
   };
 

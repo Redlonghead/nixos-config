@@ -14,16 +14,15 @@
       protonmail-bridge-gui
       qalculate-qt
       remmina
-      # thunderbird
+      thunderbird
       vlc
       youtube-music
-      yubikey-manager-qt
+      yubioath-flutter
       keepassxc
       modrinth-app
 
       # Made by KDE
-      dolphin
-      kdePackages.kio-extras
+      kdePackages.dolphin
       kdePackages.kio-fuse
       kdePackages.qtwayland
       kdePackages.qtsvg
