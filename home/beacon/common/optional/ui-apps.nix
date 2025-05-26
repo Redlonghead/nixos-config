@@ -20,6 +20,7 @@
       yubioath-flutter
       keepassxc
       modrinth-app
+      prismlauncher
 
       # Made by KDE
       kdePackages.dolphin
