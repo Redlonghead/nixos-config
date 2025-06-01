@@ -6,7 +6,7 @@
     (with pkgs; [
 
       # Everything
-      bitwarden
+      # bitwarden
       discord
       moonlight-qt
       obsidian
@@ -19,7 +19,7 @@
       youtube-music
       yubioath-flutter
       keepassxc
-      modrinth-app
+      # modrinth-app
       prismlauncher
 
       # Made by KDE
