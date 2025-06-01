@@ -45,6 +45,5 @@ hm-trace host=HOST user=USER: && hm-post
 
 [private]
 @hm-post:
-    pgrep Hyprland &> /dev/null && echo "Reloading hyprland" && hyprctl reload &> /dev/null
+    pgrep Hyprland &> /dev/null && echo "Reloading Hyprland" && hyprctl reload &> /dev/null
     pgrep .waybar-wrapped &> /dev/null && echo "Restarting waybar" && killall .waybar-wrapped && echo "Running waybar" && waybar &> /dev/null & disown
-    pgrep Hyprland &> /dev/null && echo "Reapplying background from stylix via swaybg" && echo "Running ~/.swaybg-stylix" && ~/.swaybg-stylix &> /dev/null & disown

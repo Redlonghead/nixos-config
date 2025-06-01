@@ -1,9 +1,9 @@
 {
   config,
   pkgs,
-  configVars,
   ...
 }:
+
 {
   programs.hyprlock = {
     enable = true;
@@ -21,7 +21,9 @@
 
       background = [
         {
-          path = config.stylix.image;
+          path = [
+            (builtins.toString config.stylix.image)
+          ];
           blur_passes = 2;
         }
       ];
@@ -108,7 +110,7 @@
             + config.lib.stylix.colors.base07-rgb-b
             + ")";
           font_size = 25;
-          font_family = configVars.userSettings.font;
+          font_family = "Intel One Mono";
           rotate = 0; # degrees, counter-clockwise
 
           position = "0, 160";

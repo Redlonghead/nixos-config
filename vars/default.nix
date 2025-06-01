@@ -4,7 +4,7 @@
 
   userSettings = {
     theme = "atelier-lakeside";
-    font = "FiraCode";
+    font = "fira-code";
     username = "beacon"; # TODO remove??
 
   };

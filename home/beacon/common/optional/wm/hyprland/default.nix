@@ -5,6 +5,7 @@
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
     ./waybar.nix
     ../../style
     ../cursor.nix
@@ -35,7 +36,7 @@
         "hypridle"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "bash ~/.config/hypr/start.sh"
-        "bash ~/.swaybg-stylix"
+        "hyprpaper"
         "blueman-applet"
         "xwaylandvideobridge"
       ];
