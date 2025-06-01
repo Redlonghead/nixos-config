@@ -11,4 +11,4 @@
 # - Keybindings match hyprland
 # - Backgrounds
 # - Color style
-# - Settings specific to Cosmic 
+# - Settings specific to Cosmic

@@ -54,6 +54,6 @@ This is really for myself as its just "Conventional Commits" style and its my fi
 
 ### Branches
 
-- `feature/` –  These branches are used for developing new features (like feature/login-system).
+- `feature/` – These branches are used for developing new features (like feature/login-system).
 - `bugfix/` – These branches are used to fix bugs in the code (like bugfix/header-styling).
 - `docs/` – These branches are used to write, update, or fix documentation (like docs/api-endpoints).
