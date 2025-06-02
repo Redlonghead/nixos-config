@@ -9,6 +9,8 @@
     ./waybar.nix
     ../../style
     ../cursor.nix
+    ../clipboard.nix
+
   ];
 
   wayland.windowManager.hyprland = {
@@ -39,6 +41,7 @@
         "hyprpaper"
         "blueman-applet"
         "xwaylandvideobridge"
+        "clipse -listen"
       ];
 
       "$mainMod" = "SUPER";
@@ -91,7 +94,7 @@
         "$mainMod, mouse_up, workspace, e-1"
 
         # Custom Stuff
-        "$mainMod, V, exec, code"
+        "$mainMod, V, exec, kitty --class clipse -e clipse"
         "$mainMod, O, exec, obsidian"
         "$mainMod, N, exec, code /home/beacon/Documents/NixOS.code-workspace"
         "$mainMod, F, exec, floorp"
@@ -137,6 +140,9 @@
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
+        "stayfocused, class:(clipse)"
       ];
 
       # Default Config stuff
