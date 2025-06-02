@@ -9,7 +9,6 @@
 }:
 {
   imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.homeModules);
-  services.ssh-agent.enable = true;
 
   # Default Info / Settings
   news.display = "silent";
@@ -83,6 +82,12 @@
       package = pkgs.zoxide;
       enableZshIntegration = true;
     };
+  };
+  
+  services = {
+    ssh-agent.enable = true;
+
+    udiskie.enable = true;
   };
 
   # Nicely reload system units when changing configs
