@@ -13,6 +13,10 @@
 
   ];
 
+  home.packages = [
+    pkgs.hyprpicker
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
