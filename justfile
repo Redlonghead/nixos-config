@@ -7,28 +7,34 @@ default:
     @just --list
 
 [private]
-@rebuild-pre:
+@ns-pre:
+    nix fmt
     git add .
     (cd ../nixos-secrets && git fetch && git rebase) || true
     nix flake update nixos-secrets
+
+[private]
+@hm-pre:
+    nix fmt
+    git add .
 
 # Rebuilds both NixOS & Home Manager
 sync: ns hm
 
 # Rebuilds NixOS
-ns host=HOST: rebuild-pre
+ns host=HOST: ns-pre
     sudo nixos-rebuild --flake .#{{ host }} switch
 
 # Rebuilds Home Manager
-hm host=HOST user=USER: && hm-post
+hm host=HOST user=USER: hm-pre && hm-post
     home-manager switch --flake .#{{ user }}@{{ host }}
 
 # Runs rebuild in test and has both shows-trace and eval-cache false
-ns-trace host=HOST: rebuild-pre
+ns-trace host=HOST: ns-pre
     sudo nixos-rebuild test --show-trace --option eval-cache false --flake .#{{ host }}
 
 # Has both shows-trace and eval-cache false
-hm-trace host=HOST user=USER: && hm-post
+hm-trace host=HOST user=USER: hm-pre && hm-post
     home-manager switch --show-trace --option eval-cache false --flake .#{{ user }}@{{ host }}
 
 # Updates the flake and rebuilds NixOS
@@ -46,4 +52,4 @@ hm-trace host=HOST user=USER: && hm-post
 [private]
 @hm-post:
     pgrep Hyprland &> /dev/null && echo "Reloading Hyprland" && hyprctl reload &> /dev/null
-    pgrep .waybar-wrapped &> /dev/null && echo "Restarting waybar" && killall .waybar-wrapped && echo "Running waybar" && waybar &> /dev/null & disown
+    pgrep .waybar-wrapped &> /dev/null && echo "Restarting waybar" && killall .waybar-wrapped && waybar &> /dev/null & disown
