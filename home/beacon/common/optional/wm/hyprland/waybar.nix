@@ -118,7 +118,7 @@
         clock = {
           "interval" = 1;
           "format" = "{:%a %m-%d-%y %I:%M:%S %p}";
-          "timezone" = "America/Chicago";
+          "timezone" = configVars.userSettings.timeZone;
           "tooltip-format" = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';

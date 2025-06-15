@@ -8,6 +8,7 @@
 {
   lib,
   inputs,
+  configVars,
   configLib,
   pkgs,
   ...
@@ -77,4 +78,6 @@
     fprintd.enable = lib.mkForce false;
 
   };
+
+  time.timeZone = lib.mkForce configVars.userSettings.timeZone;
 }

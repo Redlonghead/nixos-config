@@ -1,8 +1,6 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  #FIXME Called default.nix for the configlib.scanPaths
-
-  time.timeZone = "America/Chicago";
+  time.timeZone = lib.mkDefault "America/Chicago";
   services.timesyncd.enable = true;
 }
