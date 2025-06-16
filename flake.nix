@@ -54,6 +54,7 @@
             "*.jpg"
             "*.pub"
             "*.conf"
+            "justfile"
           ];
         }
       );

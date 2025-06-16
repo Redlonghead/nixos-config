@@ -37,6 +37,7 @@
         ff = "fastfetch";
         cat = "bat";
         ts = "tailscale";
+        j = "just";
       };
     };
 

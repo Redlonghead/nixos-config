@@ -1,55 +1,77 @@
 HOST := `hostname`
 USER := `echo $USER`
 
-# Default recipe to display help information
-[private]
-default:
-    @just --list
+alias ns := nixosSwitch
+alias hm := homeManagerSwitch
+alias s := sync
+alias fu := flakeUpdate
+alias nst := nixosTrace
+alias hmt := homeManagerTrace
+alias gc := garbageCollect
 
-[private]
-@ns-pre:
+# Default recipe to display help information
+_default:
+    @just --list --unsorted --justfile {{ justfile() }}
+
+[no-exit-message]
+_lint:
     nix fmt
     git add .
-    (cd ../nixos-secrets && git fetch && git rebase) || true
+
+[no-exit-message]
+_nixosPre: _lint
+    @(cd ~/src/nixos-secrets && git fetch && git rebase) || true
     nix flake update nixos-secrets
 
-[private]
-@hm-pre:
-    nix fmt
-    git add .
+@_homeManagerPost:
+    pgrep Hyprland &> /dev/null
+    echo '{{ style("warning") }}Reloading Hyprland{{ NORMAL }}'
+    hyprctl reload &> /dev/null
+    pgrep .waybar-wrapped &> /dev/null
+    echo '{{ style("warning") }}Restarting waybar{{ NORMAL }}'
+    killall .waybar-wrapped 
+    waybar &> /dev/null & disown
 
-# Rebuilds both NixOS & Home Manager
-sync: ns hm
+# Rekeys the provided file with the .sops.yaml config
+[working-directory: '~/src/nixos-secrets/sops']
+rekey secret:
+    sops updatekeys -y {{ secret }}
+    @git add -u 
+    git commit -m "chore: rekey {{ secret }}"
+    git push
 
 # Rebuilds NixOS
-ns host=HOST: ns-pre
+[no-exit-message]
+nixosSwitch host=HOST: _nixosPre
+    @echo '{{ style("warning") }}Building NixOS system{{ NORMAL }}'
     sudo nixos-rebuild --flake .#{{ host }} switch
 
 # Rebuilds Home Manager
-hm host=HOST user=USER: hm-pre && hm-post
+[no-exit-message]
+homeManagerSwitch host=HOST user=USER: _lint && _homeManagerPost
+    @echo '{{ style("warning") }}Building User Settings{{ NORMAL }}'
     home-manager switch --flake .#{{ user }}@{{ host }}
 
+# Rebuilds both NixOS & Home Manager
+[no-exit-message]
+sync: nixosSwitch homeManagerSwitch
+
 # Runs rebuild in test and has both shows-trace and eval-cache false
-ns-trace host=HOST: ns-pre
+[no-exit-message]
+nixosTrace host=HOST: _nixosPre
     sudo nixos-rebuild test --show-trace --option eval-cache false --flake .#{{ host }}
 
 # Has both shows-trace and eval-cache false
-hm-trace host=HOST user=USER: hm-pre && hm-post
+[no-exit-message]
+homeManagerTrace host=HOST user=USER: _lint && _homeManagerPost
     home-manager switch --show-trace --option eval-cache false --flake .#{{ user }}@{{ host }}
 
 # Updates the flake and rebuilds NixOS
-@ns-update: && (ns HOST)
+[no-exit-message]
+flakeUpdate: && nixosSwitch
     nix flake update
 
-# Rekeys the provided file with the .sops.yaml config
-@rekey secret:
-    cd ../nixos-secrets/sops && (sops updatekeys -y {{ secret }} && git add -u && (git commit -m "chore: rekey {{ secret }}" || true) && git push)
-
 # Garbage Collect for NixOS
-@gc: && ns
+[no-exit-message]
+garbageCollect: && nixosSwitch
     nix-collect-garbage --delete-old
-
-[private]
-@hm-post:
-    pgrep Hyprland &> /dev/null && echo "Reloading Hyprland" && hyprctl reload &> /dev/null
-    pgrep .waybar-wrapped &> /dev/null && echo "Restarting waybar" && killall .waybar-wrapped && waybar &> /dev/null & disown
