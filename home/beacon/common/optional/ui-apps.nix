@@ -21,6 +21,7 @@
       keepassxc
       # modrinth-app
       prismlauncher
+      calibre
 
       # Made by KDE
       kdePackages.dolphin
