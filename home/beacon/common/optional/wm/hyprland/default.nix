@@ -8,6 +8,7 @@
     ./hyprpaper.nix
     ./waybar.nix
     ../../style
+    ../../uiApps/kitty.nix
     ../cursor.nix
     ../clipboard.nix
 
