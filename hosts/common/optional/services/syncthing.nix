@@ -54,6 +54,10 @@
           path = "~/Documents";
           devices = [ "BIT-SNY-DSM-001" ];
         };
+        "CB-library" = {
+          path = "~/library";
+          devices = [ "BIT-SNY-DSM-001" ];
+        };
       };
     };
   };
