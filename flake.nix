@@ -153,6 +153,8 @@
     };
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    calibrePlugins.url = "git+https://codeberg.org/Nydragon/calibre-plugins";
   };
 
 }

@@ -67,6 +67,24 @@
         "type": "github"
       }
     },
+    "calibrePlugins": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1748885251,
+        "narHash": "sha256-rWgKkSZaf0OjHJflBQoVd54d27h+Nuc7W2TxSz00CWI=",
+        "ref": "refs/heads/main",
+        "rev": "e4acd7b49858ec4317e2c2976d1fe097d774bdae",
+        "revCount": 7,
+        "type": "git",
+        "url": "https://codeberg.org/Nydragon/calibre-plugins"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Nydragon/calibre-plugins"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -302,16 +320,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1747958103,
-        "narHash": "sha256-qmmFCrfBwSHoWw7cVK4Aj+fns+c54EBP8cGqp/yK410=",
+        "lastModified": 1742335908,
+        "narHash": "sha256-unmSiGsXmUAZ4fAcSgf1iwssLmt/FLrczhLAsosyLh8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fe51d34885f7b5e3e7b59572796e1bcb427eccb1",
+        "rev": "fb9a9ddebc6c9685d2b6b98b35f134573e1872c8",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -377,6 +394,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1747958103,
+        "narHash": "sha256-qmmFCrfBwSHoWw7cVK4Aj+fns+c54EBP8cGqp/yK410=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fe51d34885f7b5e3e7b59572796e1bcb427eccb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -405,6 +438,7 @@
     },
     "root": {
       "inputs": {
+        "calibrePlugins": "calibrePlugins",
         "home-manager-stable": "home-manager-stable",
         "home-manager-unstable": "home-manager-unstable",
         "nixos-hardware": "nixos-hardware",
@@ -601,7 +635,7 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1749194973,
@@ -641,7 +675,7 @@
     },
     "treefmt-nix_3": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1749194973,
