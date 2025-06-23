@@ -1,9 +1,11 @@
 # Join AD: sudo adcli join --domain=bit.beardit.net --user=beacon
 
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-  # Packages
   environment.systemPackages = with pkgs; [
     adcli # Helper library and tools for Active Directory client operations
     oddjob # Odd Job Daemon

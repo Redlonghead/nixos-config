@@ -1,4 +1,9 @@
-{ pkgs, userSettings, ... }:
+{
+  pkgs,
+  userSettings,
+  ...
+}:
+
 let
 
   #TODO finish this service

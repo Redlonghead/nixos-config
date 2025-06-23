@@ -5,6 +5,7 @@
   lib,
   ...
 }:
+
 let
   # Only enable auto upgrade if current config came from a clean tree
   # This avoids accidental auto-upgrades when working locally.

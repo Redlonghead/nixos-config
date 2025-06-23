@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-
   imports = [
     ./hypridle.nix
     ./hyprlock.nix

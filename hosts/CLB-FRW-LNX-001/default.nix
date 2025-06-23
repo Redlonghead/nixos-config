@@ -10,7 +10,6 @@
   inputs,
   configVars,
   configLib,
-  pkgs,
   ...
 }:
 

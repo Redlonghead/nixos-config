@@ -4,6 +4,7 @@
   configVars,
   ...
 }:
+
 {
   programs.waybar = {
     enable = true;

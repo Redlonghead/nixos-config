@@ -4,6 +4,7 @@
   pkgs,
   ...
 }:
+
 {
   imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.nixosModules);
 

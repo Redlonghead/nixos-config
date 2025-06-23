@@ -1,7 +1,6 @@
 { ... }:
 
 {
-
   userSettings = {
     theme = "atelier-lakeside";
     font = "fira-code";
@@ -12,4 +11,5 @@
     # timeZone = "America/Chicago";
     timeZone = "America/Denver";
   };
+
 }

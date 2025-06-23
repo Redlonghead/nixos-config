@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   time.timeZone = lib.mkDefault "America/Chicago";
