@@ -44,7 +44,27 @@
         ts = "tailscale";
         tss = "tailscale status";
         tsd = "sudo tailscale dns status";
+        nix = "_nix";
       };
+
+      initContent = "
+      # Calls nom only when build, shell, develop subcommands of nix are called.
+      _nix() {
+        case $1 in
+          build)
+            shift
+            command nom build \"$@\";;
+          shell)
+            shift
+            command nom shell \"$@\";;
+          develop)
+            shift
+            command nom develop \"$@\";;
+          *)
+            command nix \"$@\";;
+        esac
+      }
+      ";
     };
 
     oh-my-posh = {

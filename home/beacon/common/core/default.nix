@@ -27,6 +27,8 @@
   home.packages = (
     with pkgs;
     [
+      nix-output-monitor
+      nh
       localsend
       sops
       nixd
