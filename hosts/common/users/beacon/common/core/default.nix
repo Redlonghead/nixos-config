@@ -1,15 +1,18 @@
 {
   lib,
   config,
+  configLib,
   pkgs,
   ...
 }:
 
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  pubKeys = lib.filesystem.listFilesRecursive ./keys;
+  pubKeys = lib.filesystem.listFilesRecursive ../keys;
 in
 {
+  imports = (configLib.scanPaths ./.);
+
   # Define a user account.
   sops.secrets."users/beacon/pass".neededForUsers = true;
   users.mutableUsers = false; # required for sops
@@ -48,10 +51,13 @@ in
   ];
 
   # Default tools on all systems
-  programs.zsh.enable = true;
-  programs.git.enable = true;
+  programs = {
+    zsh.enable = true;
+    git.enable = true;
+    nh.flake = lib.mkForce "/home/beacon/src/nixos-config";
+  };
+
   environment.systemPackages = with pkgs; [
-    just
     killall
   ];
 
