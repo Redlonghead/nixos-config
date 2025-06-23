@@ -1,7 +1,5 @@
 {
-  config,
   inputs,
-  configVars,
   ...
 }:
 
@@ -20,12 +18,6 @@
 
     secrets = {
       # add secrets to be extracted under /run with root priv by default
-      "users/${configVars.userSettings.username}/ssh" = {
-        owner = config.users.users.${configVars.userSettings.username}.name;
-        inherit (config.users.users.${configVars.userSettings.username}) group;
-
-        path = "/home/${configVars.userSettings.username}/.ssh/id_${configVars.userSettings.username}";
-      };
 
     };
 

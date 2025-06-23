@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  configVars,
   ...
 }:
 
@@ -11,12 +10,12 @@
     secrets = {
       # add secrets to be extracted under /run with root priv by default
       "syncthing/${config.networking.hostName}/key" = {
-        owner = configVars.userSettings.username;
+        owner = "beacon";
         group = "syncthing";
       };
 
       "syncthing/${config.networking.hostName}/cert" = {
-        owner = configVars.userSettings.username;
+        owner = "beacon";
         group = "syncthing";
       };
 
@@ -26,9 +25,9 @@
 
   services.syncthing = {
     enable = true;
-    user = configVars.userSettings.username;
-    dataDir = "/home/${configVars.userSettings.username}";
-    configDir = "/home/${configVars.userSettings.username}/.config/syncthing/";
+    user = "beacon";
+    dataDir = "/home/beacon";
+    configDir = "/home/beacon/.config/syncthing/";
 
     # FIXME Issue #326704 on nixpkg for needing to set
     # services.syncthing.overrideDevices = false
