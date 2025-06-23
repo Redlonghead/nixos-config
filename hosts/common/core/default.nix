@@ -2,6 +2,7 @@
   outputs,
   configLib,
   pkgs,
+  configVars,
   ...
 }:
 
@@ -47,9 +48,18 @@
     };
   };
 
-  programs.htop = {
-    enable = true;
-    package = pkgs.htop;
+  programs = {
+    htop = {
+      enable = true;
+      package = pkgs.htop;
+    };
+
+    nh = {
+      enable = true;
+      flake = "/home/${configVars.userSettings.username}/src/nixos-config";
+      package = pkgs.nh;
+      clean.enable = true;
+    };
   };
 
   nix.settings = {

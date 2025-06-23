@@ -28,7 +28,6 @@
     with pkgs;
     [
       nix-output-monitor
-      nh
       localsend
       sops
       nixd
@@ -72,6 +71,13 @@
       git = true;
       icons = "always";
       colors = "auto";
+    };
+
+    nh = {
+      enable = true;
+      flake = "$HOME/src/nixos-config";
+      package = pkgs.nh;
+      clean.enable = true;
     };
 
     yazi = {
