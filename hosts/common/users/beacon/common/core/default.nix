@@ -1,23 +1,25 @@
 {
   lib,
-  configVars,
   config,
+  configLib,
   pkgs,
   ...
 }:
 
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  pubKeys = lib.filesystem.listFilesRecursive ./keys;
+  pubKeys = lib.filesystem.listFilesRecursive ../keys;
 in
 {
+  imports = (configLib.scanPaths ./.);
+
   # Define a user account.
-  sops.secrets."users/${configVars.userSettings.username}/pass".neededForUsers = true;
+  sops.secrets."users/beacon/pass".neededForUsers = true;
   users.mutableUsers = false; # required for sops
 
-  users.users.${configVars.userSettings.username} = {
+  users.users.beacon = {
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."users/${configVars.userSettings.username}/pass".path;
+    hashedPasswordFile = config.sops.secrets."users/beacon/pass".path;
     description = "Connor";
     packages = [ pkgs.home-manager ];
 
@@ -39,7 +41,7 @@ in
     shell = pkgs.zsh; # default shell
   };
 
-  # home-manager.users.${configVars.userSettings.username} = import (configLib.relativeToRoot "home/${configVars.userSettings.username}/${config.networking.hostName}.nix");
+  # home-manager.users.beacon = import (configLib.relativeToRoot "home/beacon/${config.networking.hostName}.nix");
 
   # Fonts
   fonts.fontDir.enable = true;
@@ -49,10 +51,13 @@ in
   ];
 
   # Default tools on all systems
-  programs.zsh.enable = true;
-  programs.git.enable = true;
+  programs = {
+    zsh.enable = true;
+    git.enable = true;
+    nh.flake = lib.mkForce "/home/beacon/src/nixos-config";
+  };
+
   environment.systemPackages = with pkgs; [
-    just
     killall
   ];
 

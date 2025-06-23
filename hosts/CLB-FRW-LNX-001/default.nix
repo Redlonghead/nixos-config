@@ -8,6 +8,7 @@
 {
   lib,
   inputs,
+  config,
   configVars,
   configLib,
   ...
@@ -34,7 +35,6 @@
       "hosts/common/optional/services/openssh.nix"
       "hosts/common/optional/services/pipewire.nix"
       "hosts/common/optional/services/printing.nix"
-      "hosts/common/optional/services/syncthing.nix"
       "hosts/common/optional/brightnessctl.nix"
       "hosts/common/optional/wm/hyprland.nix"
       # "hosts/common/optional/wm/cosmic.nix"
@@ -43,7 +43,7 @@
       "hosts/common/optional/steam.nix"
 
       ############ User to create ######################
-      "hosts/common/users/beacon"
+      "hosts/common/users/beacon/CLB-FRW-LNX-001.nix"
 
     ]);
 

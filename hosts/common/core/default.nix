@@ -2,7 +2,7 @@
   outputs,
   configLib,
   pkgs,
-  configVars,
+  lib,
   ...
 }:
 
@@ -56,7 +56,7 @@
 
     nh = {
       enable = true;
-      flake = "/home/${configVars.userSettings.username}/src/nixos-config";
+      flake = lib.mkDefault "/etc/nixos-config";
       package = pkgs.nh;
       clean.enable = true;
     };
@@ -70,9 +70,9 @@
     warn-dirty = false;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #
-  # ];
+  environment.systemPackages = with pkgs; [
+    just
+  ];
 
   hardware.enableRedistributableFirmware = true;
 
