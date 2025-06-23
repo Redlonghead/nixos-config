@@ -9,6 +9,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./waybar.nix
+    ./rofi.nix
     ../../style
     ../../uiApps/kitty.nix
     ../cursor.nix
