@@ -44,13 +44,15 @@ rekey secret:
 [no-exit-message]
 nixosSwitch host=HOST: _nixosPre
     @echo '{{ style("warning") }}Building NixOS system{{ NORMAL }}'
-    sudo nixos-rebuild --flake .#{{ host }} switch
+    nh os switch . -H {{ host }}
+    # sudo nixos-rebuild --flake .#{{ host }} switch
 
 # Rebuilds Home Manager
 [no-exit-message]
 homeManagerSwitch host=HOST user=USER: _lint && _homeManagerPost
     @echo '{{ style("warning") }}Building User Settings{{ NORMAL }}'
-    home-manager switch --flake .#{{ user }}@{{ host }}
+    nh home switch . -c {{ user }}@{{ host }}
+    # home-manager switch --flake .#{{ user }}@{{ host }}
 
 # Rebuilds both NixOS & Home Manager
 [no-exit-message]
@@ -59,19 +61,24 @@ sync: nixosSwitch homeManagerSwitch
 # Runs rebuild in test and has both shows-trace and eval-cache false
 [no-exit-message]
 nixosTrace host=HOST: _nixosPre
-    sudo nixos-rebuild test --show-trace --option eval-cache false --flake .#{{ host }}
+    nh os switch . -H {{ host }} -- --show-trace --option eval-cache false 
+    # sudo nixos-rebuild test --show-trace --option eval-cache false --flake .#{{ host }}
 
 # Has both shows-trace and eval-cache false
 [no-exit-message]
 homeManagerTrace host=HOST user=USER: _lint && _homeManagerPost
-    home-manager switch --show-trace --option eval-cache false --flake .#{{ user }}@{{ host }}
+    nh home switch . -c {{ user }}@{{ host }} -- --show-trace --option eval-cache false
+    # home-manager switch --show-trace --option eval-cache false --flake .#{{ user }}@{{ host }}
 
 # Updates the flake and rebuilds NixOS
 [no-exit-message]
-flakeUpdate: && nixosSwitch
-    nix flake update
+flakeUpdate host=HOST user=USER:
+    nh os switch . -u --ask -H {{ host }}
+    nh home switch . -u --ask -c {{ user }}@{{ host }}
 
 # Garbage Collect for NixOS
 [no-exit-message]
 garbageCollect: && nixosSwitch
-    nix-collect-garbage --delete-old
+    # Issue with nh clean at Github #314: https://github.com/nix-community/nh/issues/314
+    # nh clean all -k 3 -K 4d -a
+    nix-collect-garbage --delete-older-than 4d
