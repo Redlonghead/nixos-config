@@ -305,11 +305,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1749365754,
-        "narHash": "sha256-iwOsvH2NzIn2IIqIenPscDq/ss5KQ6Ogsf7c2VG2AG4=",
+        "lastModified": 1750637291,
+        "narHash": "sha256-MXMszbfGfjZFzxSfmNaXNpU6XJajTgoiI0QXEQqtr4Q=",
         "ref": "refs/heads/main",
-        "rev": "c68e7bc281102c5754770ee3c1eeffacc2afc8d4",
-        "revCount": 35,
+        "rev": "17105c0be8f07636d3d95df9e3b16e024ecaf64e",
+        "revCount": 38,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },
@@ -335,11 +335,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1749359652,
-        "narHash": "sha256-oCKsfYIw2FHXcznCRTyuhXP6qd8LQL11CKKDPxG3Evs=",
+        "lastModified": 1750628350,
+        "narHash": "sha256-E6QTSNP+TVtBipAL+t3attFxH36loelU8kC2ZGv+fx8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5ac14523b6ae564923fb952ca3a0a88f4bfa0322",
+        "rev": "871c971f5956bcd7def817b0cf8c4dc58276f526",
         "type": "github"
       },
       "original": {
