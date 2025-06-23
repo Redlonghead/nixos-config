@@ -62,8 +62,6 @@
   programs.nix-ld.enable = true; # On for VScode server
 
   services = {
-    tailscale.package = pkgs.unstable.tailscale;
-
     # FRAMEWORK Hardware Stuff
     fwupd.enable = true;
 

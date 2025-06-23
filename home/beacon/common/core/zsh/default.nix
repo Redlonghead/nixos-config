@@ -36,8 +36,10 @@
         ranger = "yazi";
         ff = "fastfetch";
         cat = "bat";
-        ts = "tailscale";
         j = "just";
+        ts = "tailscale";
+        tss = "tailscale status";
+        tsd = "sudo tailscale dns status";
       };
     };
 
