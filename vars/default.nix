@@ -7,8 +7,8 @@
 
     # TODO Change Home Manager to be NixOS module
     # To use time.timeZone in Home Manager
-    # timeZone = "America/Chicago";
-    timeZone = "America/Denver";
+    timeZone = "America/Chicago";
+    # timeZone = "America/Denver";
   };
 
 }
