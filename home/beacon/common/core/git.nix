@@ -17,6 +17,12 @@
       init.defaultBranch = "main";
       safe.directory = "/home/beacon/.dotfiles";
       gpg.format = "ssh";
+      diff.colorMoved = "zebra";
+    };
+
+    delta = {
+      enable = true;
+      package = pkgs.delta;
     };
   };
 
