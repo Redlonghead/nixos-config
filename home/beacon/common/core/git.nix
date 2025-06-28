@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -16,14 +17,22 @@
     extraConfig = {
       init.defaultBranch = "main";
       safe.directory = "/home/beacon/.dotfiles";
-      gpg.format = "ssh";
       diff.colorMoved = "zebra";
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      };
     };
 
     delta = {
       enable = true;
       package = pkgs.delta;
     };
+  };
+
+  home.file."allowed_signers" = {
+    target = ".ssh/allowed_signers";
+    text = "${config.programs.git.userName} namespaces=\"git\" ${builtins.readFile ../../../../hosts/common/users/beacon/common/keys/beacon.pub}";
   };
 
   programs.lazygit = {
