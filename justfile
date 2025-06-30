@@ -45,14 +45,12 @@ rekey secret:
 nixosSwitch host=HOST: _nixosPre
     @echo '{{ style("warning") }}Building NixOS system{{ NORMAL }}'
     nh os switch . -H {{ host }}
-    # sudo nixos-rebuild --flake .#{{ host }} switch
 
 # Rebuilds Home Manager
 [no-exit-message]
 homeManagerSwitch host=HOST user=USER: _lint && _homeManagerPost
     @echo '{{ style("warning") }}Building User Settings{{ NORMAL }}'
     nh home switch . -c {{ user }}@{{ host }}
-    # home-manager switch --flake .#{{ user }}@{{ host }}
 
 # Rebuilds both NixOS & Home Manager
 [no-exit-message]
@@ -62,13 +60,11 @@ sync: nixosSwitch homeManagerSwitch
 [no-exit-message]
 nixosTrace host=HOST: _nixosPre
     nh os switch . -H {{ host }} -- --show-trace --option eval-cache false 
-    # sudo nixos-rebuild test --show-trace --option eval-cache false --flake .#{{ host }}
 
 # Has both shows-trace and eval-cache false
 [no-exit-message]
 homeManagerTrace host=HOST user=USER: _lint && _homeManagerPost
     nh home switch . -c {{ user }}@{{ host }} -- --show-trace --option eval-cache false
-    # home-manager switch --show-trace --option eval-cache false --flake .#{{ user }}@{{ host }}
 
 # Updates the flake and rebuilds NixOS
 [no-exit-message]
