@@ -11,6 +11,10 @@
     openldap
     protonmail-bridge
     yubikey-manager
+    gh
+    glab
+    glow
+    nixpkgs-review
 
     # Remember
     # terraform
