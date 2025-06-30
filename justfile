@@ -75,6 +75,7 @@ flakeUpdate host=HOST user=USER:
 # Garbage Collect for NixOS
 [no-exit-message]
 garbageCollect: && nixosSwitch
-    # Issue with nh clean at Github #314: https://github.com/nix-community/nh/issues/314
+    # FIXME Issue with nh clean at Github nix-community/nh#314
+    # https://github.com/nix-community/nh/issues/314
     # nh clean all -k 3 -K 4d -a
     nix-collect-garbage --delete-older-than 4d
