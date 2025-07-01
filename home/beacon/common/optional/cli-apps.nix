@@ -15,6 +15,7 @@
     glab
     glow
     nixpkgs-review
+    pakku
 
     # Remember
     # terraform
