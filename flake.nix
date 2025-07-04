@@ -120,13 +120,13 @@
 
   inputs = {
     ########## Main inputs #############
-    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/release-25.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     home-manager-stable = {
