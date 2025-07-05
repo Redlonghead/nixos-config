@@ -45,10 +45,13 @@
       # kicad
       # olive-editor
 
+      # Floorp crashing often; Issue created for it.
+      # https://github.com/NixOS/nixpkgs/issues/418473
+      floorp # browser
+
     ])
     ++ (with pkgs.unstable; [
 
-      floorp # browser
       vscode # code editor
       # until vim is setup
 
