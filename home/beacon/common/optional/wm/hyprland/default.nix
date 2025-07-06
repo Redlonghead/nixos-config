@@ -17,8 +17,9 @@
 
   ];
 
-  home.packages = [
-    pkgs.hyprpicker
+  home.packages = with pkgs; [
+    hyprpicker
+    hyprshot
   ];
 
   wayland.windowManager.hyprland = {
@@ -95,7 +96,15 @@
 
         # Example special workspace (scratchpad)
         "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+
+        # Screenshot
+        "$mainMod SHIFT, S, exec, hyprshot -zm region --clipboard-only"
+        ", Print, exec, hyprshot -m active -m window --clipboard-only"
+        "$mainMod ALT, S, exec, hyprshot -zm region"
+        "ALT, Print, exec, hyprshot -m active -m window"
+
+        # Color picking
+        "$mainMod SHIFT, P, exec, hyprpicker -ar"
 
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
