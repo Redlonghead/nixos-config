@@ -13,6 +13,8 @@ in
     networkmanagerapplet
   ];
 
+  services.udiskie.enable = true;
+
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
