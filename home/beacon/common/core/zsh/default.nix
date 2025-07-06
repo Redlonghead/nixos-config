@@ -44,7 +44,6 @@
         ts = "tailscale";
         tss = "tailscale status";
         tsd = "sudo tailscale dns status";
-        nix = "_nix";
       };
     };
 
