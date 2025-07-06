@@ -11,6 +11,7 @@ in
 {
   home.packages = with pkgs; [
     networkmanagerapplet
+    lxqt.pavucontrol-qt
   ];
 
   services.udiskie.enable = true;
@@ -53,13 +54,7 @@ in
         "format" = " {} ";
         "exec" = ''echo "" '';
         "interval" = "once";
-        "on-click" = "nwggrid -g adw-gtk3 -o 0.55 -b ${sColor.base00}";
-      };
-      "custom/hyprprofile" = {
-        "format" = "   {}";
-        "exec" = ''cat ~/.hyprprofile'';
-        "interval" = 3;
-        "on-click" = "hyprprofile-dmenu";
+        "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
       };
       "keyboard-state" = {
         "numlock" = true;
@@ -82,10 +77,7 @@ in
           "8" = "8";
           "9" = "9";
           "scratch_term" = "_";
-          "scratch_ranger" = "_󰴉";
-          "scratch_musikcube" = "_";
-          "scratch_btm" = "_";
-          "scratch_pavucontrol" = "_󰍰";
+          "scratch_yazi" = "_󰴉";
         };
         "on-click" = "activate";
         "on-scroll-up" = "hyprctl dispatch workspace e+1";
@@ -177,7 +169,7 @@ in
             ""
           ];
         };
-        "on-click" = "pypr toggle pavucontrol && hyprctl dispatch bringactivetotop";
+        "on-click" = "pavucontrol-qt";
       };
     };
     style = ''

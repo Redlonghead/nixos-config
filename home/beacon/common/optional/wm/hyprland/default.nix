@@ -18,7 +18,7 @@
   ];
 
   home.packages = with pkgs; [
-    # Notifcations
+    # Notifications
     swaynotificationcenter
     libnotify
 
@@ -53,7 +53,6 @@
       exec-once = [
         "waybar"
         "hypridle"
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "bash ~/.config/hypr/start.sh"
         "hyprpaper"
         "blueman-applet"
