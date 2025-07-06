@@ -106,6 +106,9 @@
         # Color picking
         "$mainMod SHIFT, P, exec, hyprpicker -ar"
 
+        # fast fastfetch window from Framework Logo key (F12)
+        ", code:234, exec, [float;center;pin;dimaround;size 1000 450] kitty --hold fastfetch"
+
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
@@ -116,7 +119,7 @@
         "$mainMod, N, exec, code /home/beacon/Documents/NixOS.code-workspace"
         "$mainMod, F, exec, floorp"
         "$mainMod, E, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
-        ", code:234, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
+        "$mainMod, space, exec, rofi -show combi -show-icons -combi-modes 'drun,run'"
         "$mainMod, L, exec, hyprlock"
 
         # Media
