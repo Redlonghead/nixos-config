@@ -198,8 +198,12 @@
       decoration = [
         {
           "rounding" = 10;
+          shadow = {
+            "enabled" = false;
+          };
           blur = {
-            "enabled" = true;
+            "enabled" = false;
+            # "enabled" = true;
             "size" = 3;
             "passes" = 1;
           };
@@ -241,6 +245,7 @@
       misc = [
         {
           "force_default_wallpaper" = 0;
+          "vfr" = true;
         }
       ];
 
