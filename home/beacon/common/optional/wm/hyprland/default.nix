@@ -23,6 +23,7 @@
     libnotify
 
     # Standalone
+    hyprpolkitagent
     rofi-wayland
     hyprpicker
     playerctl
@@ -58,6 +59,7 @@
         "blueman-applet"
         "xwaylandvideobridge"
         "clipse -listen"
+        "systemctl --user start hyprpolkitagent"
       ];
 
       "$mainMod" = "SUPER";

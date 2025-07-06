@@ -12,10 +12,6 @@
     ../style.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    polkit_gnome
-  ];
-
   # Security
   security = {
     pam.services.hyprlock = {
@@ -23,10 +19,7 @@
         auth include login
       '';
     };
-    pam.services.login.enableGnomeKeyring = true;
   };
-
-  services.gnome.gnome-keyring.enable = true;
 
   programs.hyprland = {
     enable = true;
