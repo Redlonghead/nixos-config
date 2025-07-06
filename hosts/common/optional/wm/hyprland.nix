@@ -15,8 +15,8 @@
   environment.systemPackages = with pkgs; [
     waybar
     networkmanagerapplet
+    swaynotificationcenter
     rofi-wayland
-    mako
     libnotify
     polkit_gnome
     playerctl
