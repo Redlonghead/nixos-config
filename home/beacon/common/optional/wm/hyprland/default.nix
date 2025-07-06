@@ -18,7 +18,14 @@
   ];
 
   home.packages = with pkgs; [
+    # Notifcations
+    swaynotificationcenter
+    libnotify
+
+    # Standalone
+    rofi-wayland
     hyprpicker
+    playerctl
     hyprshot
   ];
 

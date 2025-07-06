@@ -13,13 +13,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    waybar
-    networkmanagerapplet
-    swaynotificationcenter
-    rofi-wayland
-    libnotify
     polkit_gnome
-    playerctl
   ];
 
   # Security

@@ -9,6 +9,10 @@ let
   sColor = config.lib.stylix.colors;
 in
 {
+  home.packages = with pkgs; [
+    networkmanagerapplet
+  ];
+
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
