@@ -38,16 +38,13 @@ in
   stylix.base16Scheme = ./. + themePath;
   stylix.fonts = {
     monospace = {
-      name = configVars.userSettings.font;
-      package = pkgs.nerdfonts;
+      package = pkgs.nerd-fonts.fira-code;
     };
     serif = {
-      name = configVars.userSettings.font;
-      package = pkgs.nerdfonts;
+      package = pkgs.nerd-fonts.fira-code;
     };
     sansSerif = {
-      name = configVars.userSettings.font;
-      package = pkgs.nerdfonts;
+      package = pkgs.nerd-fonts.fira-code;
     };
     emoji = {
       name = "Noto Color Emoji";
