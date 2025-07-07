@@ -32,12 +32,11 @@ in
 
       modules-left = [
         "custom/os"
-        "battery"
-        "backlight"
-        "keyboard-state"
-        "pulseaudio"
+        "group/hardware"
         "memory"
         "cpu"
+        "pulseaudio"
+        "keyboard-state"
       ];
       modules-center = [ "hyprland/workspaces" ];
       modules-right = [
@@ -49,6 +48,54 @@ in
       "custom/os" = {
         "format" = "  ";
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
+      };
+      "group/hardware" = {
+        "orientation" = "horizontal";
+        "drawer" = {
+          "transition-duration" = "500";
+          "children-class" = "hardware-htop";
+          "transition-left-to-right" = true;
+        };
+        "modules" = [
+          "battery"
+          "backlight"
+        ];
+      };
+      battery = {
+        "states" = {
+          "good" = 95;
+          "warning" = 30;
+          "critical" = 15;
+        };
+        "format" = "{capacity}% {icon}";
+        "format-charging" = "{capacity}% {icon}󱐋";
+        "format-icons" = [
+          "󰁺"
+          "󰁻"
+          "󰁼"
+          "󰁽"
+          "󰁾"
+          "󰁿"
+          "󰂀"
+          "󰂁"
+          "󰂂"
+          "󰁹"
+        ];
+      };
+      backlight = {
+        "format" = "{percent}% {icon}";
+        "format-icons" = [
+          "󱩎"
+          "󱩏"
+          "󱩐"
+          "󱩑"
+          "󱩒"
+          "󱩓"
+          "󱩔"
+          "󱩕"
+          "󱩖"
+          "󰛨"
+        ];
       };
       memory = {
         "format" = "{icon}";
@@ -77,6 +124,22 @@ in
           "󰪤"
           "󰪥"
         ];
+      };
+      pulseaudio = {
+        "scroll-step" = 1;
+        "format" = "{volume}% {icon} {format_source}";
+        "format-bluetooth" = "{volume}% {icon} 󰂰 {format_source}";
+        "format-bluetooth-muted" = "󰓄 {format_source}";
+        "format-muted" = "󰓄 {format_source}";
+        "format-source" = "{volume}% 󰍬";
+        "format-source-muted" = "󰍭";
+        "format-icons" = {
+          "headphone" = "󰋋";
+          "headset" = "󰋎";
+          "phone" = "󰏲";
+          "default" = "󰓃";
+        };
+        "on-click" = "pavucontrol-qt";
       };
       "keyboard-state" = {
         "numlock" = true;
@@ -129,57 +192,6 @@ in
         "timezone" = configVars.userSettings.timeZone;
         "tooltip-format" = "{calendar}";
       };
-      backlight = {
-        "format" = "{percent}% {icon}";
-        "format-icons" = [
-          "󱩎"
-          "󱩏"
-          "󱩐"
-          "󱩑"
-          "󱩒"
-          "󱩓"
-          "󱩔"
-          "󱩕"
-          "󱩖"
-          "󰛨"
-        ];
-      };
-      battery = {
-        "states" = {
-          "good" = 95;
-          "warning" = 30;
-          "critical" = 15;
-        };
-        "format" = "{capacity}% {icon}";
-        "format-charging" = "{capacity}% {icon}󱐋";
-        "format-icons" = [
-          "󰁺"
-          "󰁻"
-          "󰁼"
-          "󰁽"
-          "󰁾"
-          "󰁿"
-          "󰂀"
-          "󰂁"
-          "󰂂"
-          "󰁹"
-        ];
-      };
-      pulseaudio = {
-        "scroll-step" = 1;
-        "format" = "{volume}% {icon} {format_source}";
-        "format-bluetooth" = "{volume}% {icon} 󰂰 {format_source}";
-        "format-bluetooth-muted" = "󰓄 {format_source}";
-        "format-muted" = "󰓄 {format_source}";
-        "format-source" = "{volume}% 󰍬";
-        "format-source-muted" = "󰍭";
-        "format-icons" = {
-          "headphone" = "󰋋";
-          "headset" = "󰋎";
-          "phone" = "󰏲";
-          "default" = "󰓃";
-        };
-        "on-click" = "pavucontrol-qt";
       };
     };
     style = ''
