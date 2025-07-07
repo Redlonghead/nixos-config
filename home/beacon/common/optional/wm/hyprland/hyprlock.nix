@@ -81,7 +81,7 @@ in
         {
           # Show time
           monitor = "";
-          text = "$TIME";
+          text = "$TIME12";
           color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
           font_size = 20;
           font_family = "Intel One Mono";
