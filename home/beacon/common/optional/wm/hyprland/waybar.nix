@@ -14,7 +14,10 @@ in
     lxqt.pavucontrol-qt
   ];
 
-  services.udiskie.enable = true;
+  services = {
+    udiskie.enable = true;
+    blueman-applet.enable = true;
+  };
 
   programs.waybar = {
     enable = true;
