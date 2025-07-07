@@ -49,6 +49,7 @@ in
         "format" = "  ";
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
       };
+
       "group/hardware" = {
         "orientation" = "horizontal";
         "drawer" = {
@@ -61,6 +62,7 @@ in
           "backlight"
         ];
       };
+
       battery = {
         "states" = {
           "good" = 95;
@@ -82,6 +84,7 @@ in
           "󰁹"
         ];
       };
+
       backlight = {
         "format" = "{percent}% {icon}";
         "format-icons" = [
@@ -97,6 +100,7 @@ in
           "󰛨"
         ];
       };
+
       memory = {
         "format" = "{icon}";
         "format-icons" = [
@@ -111,6 +115,7 @@ in
           "󰪥"
         ];
       };
+
       cpu = {
         "format" = "{icon}";
         "format-icons" = [
@@ -125,6 +130,7 @@ in
           "󰪥"
         ];
       };
+
       pulseaudio = {
         "scroll-step" = 1;
         "format" = "{volume}% {icon} {format_source}";
@@ -141,6 +147,7 @@ in
         };
         "on-click" = "pavucontrol-qt";
       };
+
       "keyboard-state" = {
         "numlock" = true;
         "format" = " {icon} ";
@@ -149,6 +156,7 @@ in
           "unlocked" = "󱧓";
         };
       };
+
       "hyprland/workspaces" = {
         "format" = "{icon}";
         "format-icons" = {
@@ -182,10 +190,12 @@ in
           deactivated = "󰾪";
         };
       };
+
       tray = {
         "icon-size" = 21;
         "spacing" = 10;
       };
+
       clock = {
         "interval" = 1;
         "format" = "{:%I:%M:%S %p}";
@@ -195,6 +205,7 @@ in
           <tt><small>{calendar}</small></tt>'';
       };
     };
+
     style = ''
       * { 
         font-family: 'Fira Code', monospace;
