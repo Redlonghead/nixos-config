@@ -36,8 +36,8 @@ in
         "backlight"
         "keyboard-state"
         "pulseaudio"
-        "cpu"
         "memory"
+        "cpu"
       ];
       modules-center = [ "hyprland/workspaces" ];
       modules-right = [
@@ -49,6 +49,34 @@ in
       "custom/os" = {
         "format" = "  ";
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
+      };
+      memory = {
+        "format" = "{icon}";
+        "format-icons" = [
+          "󰝦"
+          "󰪞"
+          "󰪟"
+          "󰪠"
+          "󰪡"
+          "󰪢"
+          "󰪣"
+          "󰪤"
+          "󰪥"
+        ];
+      };
+      cpu = {
+        "format" = "{icon}";
+        "format-icons" = [
+          "󰝦"
+          "󰪞"
+          "󰪟"
+          "󰪠"
+          "󰪡"
+          "󰪢"
+          "󰪣"
+          "󰪤"
+          "󰪥"
+        ];
       };
       "keyboard-state" = {
         "numlock" = true;
@@ -100,12 +128,6 @@ in
         "format" = "{:%a %m-%d-%y 󰥔 %I:%M:%S %p}";
         "timezone" = configVars.userSettings.timeZone;
         "tooltip-format" = "{calendar}";
-      };
-      cpu = {
-        "format" = "{usage}% ";
-      };
-      memory = {
-        "format" = "{percentage}% ";
       };
       backlight = {
         "format" = "{percent}% {icon}";
