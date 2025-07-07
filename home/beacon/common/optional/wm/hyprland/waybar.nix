@@ -32,7 +32,6 @@ in
 
       modules-left = [
         "custom/os"
-        "custom/hyprprofile"
         "battery"
         "backlight"
         "keyboard-state"
@@ -48,9 +47,7 @@ in
       ];
 
       "custom/os" = {
-        "format" = " {} ";
-        "exec" = ''echo "" '';
-        "interval" = "once";
+        "format" = "  ";
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
       };
       "keyboard-state" = {
@@ -95,35 +92,34 @@ in
         };
       };
       tray = {
-        #"icon-size" = 21;
+        "icon-size" = 21;
         "spacing" = 10;
       };
       clock = {
         "interval" = 1;
-        "format" = "{:%a %m-%d-%y %I:%M:%S %p}";
+        "format" = "{:%a %m-%d-%y 󰥔 %I:%M:%S %p}";
         "timezone" = configVars.userSettings.timeZone;
-        "tooltip-format" = ''
-          <big>{:%Y %B}</big>
-          <tt><small>{calendar}</small></tt>'';
+        "tooltip-format" = "{calendar}";
       };
       cpu = {
-        "format" = "{usage}% ";
+        "format" = "{usage}% ";
       };
       memory = {
-        "format" = "{}% ";
+        "format" = "{percentage}% ";
       };
       backlight = {
         "format" = "{percent}% {icon}";
         "format-icons" = [
-          ""
-          ""
-          ""
-          ""
-          ""
-          ""
-          ""
-          ""
-          ""
+          "󱩎"
+          "󱩏"
+          "󱩐"
+          "󱩑"
+          "󱩒"
+          "󱩓"
+          "󱩔"
+          "󱩕"
+          "󱩖"
+          "󰛨"
         ];
       };
       battery = {
@@ -133,47 +129,41 @@ in
           "critical" = 15;
         };
         "format" = "{capacity}% {icon}";
-        "format-charging" = "{capacity}% ";
-        "format-plugged" = "{capacity}% ";
-        #"format-good" = ""; # An empty format will hide the module
-        #"format-full" = "";
+        "format-charging" = "{capacity}% {icon}󱐋";
         "format-icons" = [
-          ""
-          ""
-          ""
-          ""
-          ""
+          "󰁺"
+          "󰁻"
+          "󰁼"
+          "󰁽"
+          "󰁾"
+          "󰁿"
+          "󰂀"
+          "󰂁"
+          "󰂂"
+          "󰁹"
         ];
       };
       pulseaudio = {
         "scroll-step" = 1;
-        "format" = "{volume}% {icon}  {format_source}";
-        "format-bluetooth" = "{volume}% {icon}  {format_source}";
-        "format-bluetooth-muted" = "󰸈 {icon}  {format_source}";
-        "format-muted" = "󰸈 {format_source}";
-        "format-source" = "{volume}% ";
-        "format-source-muted" = " ";
+        "format" = "{volume}% {icon} {format_source}";
+        "format-bluetooth" = "{volume}% {icon} 󰂰 {format_source}";
+        "format-bluetooth-muted" = "󰓄 {format_source}";
+        "format-muted" = "󰓄 {format_source}";
+        "format-source" = "{volume}% 󰍬";
+        "format-source-muted" = "󰍭";
         "format-icons" = {
-          "headphone" = "";
-          "hands-free" = "";
-          "headset" = "";
-          "phone" = "";
-          "portable" = "";
-          "car" = "";
-          "default" = [
-            ""
-            ""
-            ""
-          ];
+          "headphone" = "󰋋";
+          "headset" = "󰋎";
+          "phone" = "󰏲";
+          "default" = "󰓃";
         };
         "on-click" = "pavucontrol-qt";
       };
     };
     style = ''
-      * {
-        /* `otf-font-awesome` is required to be installed for icons */
-        font-family: FontAwesome, Fira Code;
-        font-size: 20px;
+      * { 
+        font-family: 'Fira Code', monospace;
+        font-size: 21px
       }
 
       window#waybar {
@@ -199,51 +189,31 @@ in
       }
 
       window > box {
-          border-radius: 8px;
-          opacity: 0.94;
+        border-radius: 8px;
+        opacity: 0.94;
       }
 
       window#waybar.hidden {
-          opacity: 0.2;
+        opacity: 0.2;
       }
 
       button {
-          border: none;
-      }
-
-      #custom-hyprprofile {
-          color: #${sColor.base0D};
-      }
-
-      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-      button:hover {
-          background: inherit;
+        border: none;
       }
 
       #workspaces button {
-          padding: 0 7px;
-          background-color: transparent;
-          color: #${sColor.base04};
+        padding: 0 7px;
+        background-color: transparent;
+        color: #${sColor.base04};
       }
 
       #workspaces button:hover {
-          color: #${sColor.base07};
-      }
-
-      #workspaces button.active {
-          color: #${sColor.base08};
-      }
-
-      #workspaces button.focused {
-          color: #${sColor.base0A};
-      }
-
-      #workspaces button.visible {
-          color: #${sColor.base05};
+        background: inherit;
+        color: #${sColor.base07};
       }
 
       #workspaces button.urgent {
-          color: #${sColor.base09};
+        color: #${sColor.base09};
       }
 
       #clock,
@@ -262,106 +232,106 @@ in
       #idle_inhibitor,
       #scratchpad,
       #mpd {
-          padding: 0 10px;
-          color: #${sColor.base07};
-          border: none;
-          border-radius: 8px;
+        padding: 0 10px;
+        color: #${sColor.base07};
+        border: none;
+        border-radius: 8px;
       }
 
       #window,
       #workspaces {
-          margin: 0 4px;
+        margin: 0 4px;
       }
 
       /* If workspaces is the leftmost module, omit left margin */
       .modules-left > widget:first-child > #workspaces {
-          margin-left: 0;
+        margin-left: 0;
       }
 
       /* If workspaces is the rightmost module, omit right margin */
       .modules-right > widget:last-child > #workspaces {
-          margin-right: 0;
+        margin-right: 0;
       }
 
       #clock {
-          color: #${sColor.base0D};
+        color: #${sColor.base0D};
       }
 
       #battery {
-          color: #${sColor.base0B};
+        color: #${sColor.base0B};
       }
 
       #battery.charging, #battery.plugged {
-          color: #${sColor.base0C};
+        color: #${sColor.base0C};
       }
 
       @keyframes blink {
-          to {
-              background-color: #${sColor.base07};
-              color: #${sColor.base00};
-          }
+        to {
+          background-color: #${sColor.base07};
+          color: #${sColor.base00};
+        }
       }
 
       #battery.critical:not(.charging) {
-          background-color: #${sColor.base08};
-          color: #${sColor.base07};
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
+        background-color: #${sColor.base08};
+        color: #${sColor.base07};
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
       }
 
       label:focus {
-          background-color: #${sColor.base00};
+        background-color: #${sColor.base00};
       }
 
       #cpu {
-          color: #${sColor.base0D};
+        color: #${sColor.base0D};
       }
 
       #memory {
-          color: #${sColor.base0E};
+        color: #${sColor.base0E};
       }
 
       #disk {
-          color: #${sColor.base0F};
+        color: #${sColor.base0F};
       }
 
       #backlight {
-          color: #${sColor.base0A};
+        color: #${sColor.base0A};
       }
 
       label.numlock {
-          color: #${sColor.base04};
+        color: #${sColor.base04};
       }
 
       label.numlock.locked {
-          color: #${sColor.base0F};
+        color: #${sColor.base0F};
       }
 
       #pulseaudio {
-          color: #${sColor.base0C};
+        color: #${sColor.base0C};
       }
 
       #pulseaudio.muted {
-          color: #${sColor.base04};
+        color: #${sColor.base04};
       }
 
       #tray > .passive {
-          -gtk-icon-effect: dim;
+        -gtk-icon-effect: dim;
       }
 
       #tray > .needs-attention {
-          -gtk-icon-effect: highlight;
+        -gtk-icon-effect: highlight;
       }
 
       #idle_inhibitor {
-          color: #${sColor.base04};
+        color: #${sColor.base04};
       }
 
       #idle_inhibitor.activated {
-          color: #${sColor.base0F};
+        color: #${sColor.base0F};
       }
     '';
   };
