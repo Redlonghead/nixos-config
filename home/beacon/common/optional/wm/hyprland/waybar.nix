@@ -188,10 +188,11 @@ in
       };
       clock = {
         "interval" = 1;
-        "format" = "{:%a %m-%d-%y 󰥔 %I:%M:%S %p}";
+        "format" = "{:%I:%M:%S %p}";
         "timezone" = configVars.userSettings.timeZone;
-        "tooltip-format" = "{calendar}";
-      };
+        "tooltip-format" = ''
+          <big>{:%m-%d-%y}</big>
+          <tt><small>{calendar}</small></tt>'';
       };
     };
     style = ''
