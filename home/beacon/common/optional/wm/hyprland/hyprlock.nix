@@ -4,6 +4,9 @@
   ...
 }:
 
+let
+  sColor = config.lib.stylix.colors;
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -37,51 +40,16 @@
           dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0
           dots_center = true;
           dots_rounding = -1; # -1 default circle, -2 follow input-field rounding
-          outer_color =
-            "rgb("
-            + config.lib.stylix.colors.base07-rgb-r
-            + ","
-            + config.lib.stylix.colors.base07-rgb-g
-            + ","
-            + config.lib.stylix.colors.base07-rgb-b
-            + ")";
-          inner_color =
-            "rgb("
-            + config.lib.stylix.colors.base00-rgb-r
-            + ","
-            + config.lib.stylix.colors.base00-rgb-g
-            + ","
-            + config.lib.stylix.colors.base00-rgb-b
-            + ")";
-          font_color =
-            "rgb("
-            + config.lib.stylix.colors.base07-rgb-r
-            + ","
-            + config.lib.stylix.colors.base07-rgb-g
-            + ","
-            + config.lib.stylix.colors.base07-rgb-b
-            + ")";
+          outer_color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
+          inner_color = "rgb(${sColor.base00-rgb-r},${sColor.base00-rgb-g},${sColor.base00-rgb-b})";
+          font_color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
           fade_on_empty = true;
           fade_timeout = 5000; # Milliseconds before fade_on_empty is triggered.
           placeholder_text = "<i>Input Password...</i>"; # Text rendered in the input box when it's empty.
           hide_input = false;
           rounding = -1; # -1 means complete rounding (circle/oval)
-          check_color =
-            "rgb("
-            + config.lib.stylix.colors.base0A-rgb-r
-            + ","
-            + config.lib.stylix.colors.base0A-rgb-g
-            + ","
-            + config.lib.stylix.colors.base0A-rgb-b
-            + ")";
-          fail_color =
-            "rgb("
-            + config.lib.stylix.colors.base08-rgb-r
-            + ","
-            + config.lib.stylix.colors.base08-rgb-g
-            + ","
-            + config.lib.stylix.colors.base08-rgb-b
-            + ")";
+          check_color = "rgb(${sColor.base0A-rgb-r},${sColor.base0A-rgb-g},${sColor.base0A-rgb-b})";
+          fail_color = "rgb(${sColor.base08-rgb-r},${sColor.base08-rgb-g},${sColor.base08-rgb-b})";
           fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>"; # can be set to empty
           fail_transition = 300; # transition time in ms between normal outer_color and fail_color
           capslock_color = -1;
@@ -101,14 +69,7 @@
           # Show hello user text
           monitor = "";
           text = "Hello, $DESC";
-          color =
-            "rgb("
-            + config.lib.stylix.colors.base07-rgb-r
-            + ","
-            + config.lib.stylix.colors.base07-rgb-g
-            + ","
-            + config.lib.stylix.colors.base07-rgb-b
-            + ")";
+          color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
           font_size = 25;
           font_family = "Intel One Mono";
           rotate = 0; # degrees, counter-clockwise
@@ -121,14 +82,7 @@
           # Show time
           monitor = "";
           text = "$TIME";
-          color =
-            "rgb("
-            + config.lib.stylix.colors.base07-rgb-r
-            + ","
-            + config.lib.stylix.colors.base07-rgb-g
-            + ","
-            + config.lib.stylix.colors.base07-rgb-b
-            + ")";
+          color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
           font_size = 20;
           font_family = "Intel One Mono";
           rotate = 0; # degrees, counter-clockwise
