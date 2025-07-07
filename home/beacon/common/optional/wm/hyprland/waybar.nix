@@ -18,13 +18,7 @@ in
 
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      postPatch = ''
-        # use hyprctl to switch workspaces
-        sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch focusworkspaceoncurrentmonitor " + std::to_string(id());\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-        sed -i 's/gIPC->getSocket1Reply("dispatch workspace " + std::to_string(id()));/gIPC->getSocket1Reply("dispatch focusworkspaceoncurrentmonitor " + std::to_string(id()));/g' src/modules/hyprland/workspaces.cpp
-      '';
-    });
+    package = pkgs.waybar;
 
     settings.mainBar = {
       layer = "top";
