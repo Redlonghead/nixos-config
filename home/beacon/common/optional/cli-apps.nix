@@ -15,10 +15,12 @@
     glab
     glow
     nixpkgs-review
-    pakku
 
     # Remember
     # terraform
+
+    # Since I am a maintainer I trust the unstable pkg
+    unstable.pakku
 
   ];
 }
