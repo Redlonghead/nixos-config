@@ -36,10 +36,9 @@ in
 
       modules-left = [
         "custom/os"
-        "memory"
-        "cpu"
         "group/battery"
         "pulseaudio"
+        "group/hardware"
         "keyboard-state"
       ];
       modules-center = [ "hyprland/workspaces" ];
@@ -105,6 +104,31 @@ in
         ];
       };
 
+      pulseaudio = {
+        "scroll-step" = 1;
+        "format" = "{volume}% {icon} {format_source}";
+        "format-bluetooth" = "{volume}% {icon} 󰂰 {format_source}";
+        "format-bluetooth-muted" = "󰓄 {format_source}";
+        "format-muted" = "󰓄 {format_source}";
+        "format-source" = "{volume}% 󰍬";
+        "format-source-muted" = "󰍭";
+        "format-icons" = {
+          "headphone" = "󰋋";
+          "headset" = "󰋎";
+          "phone" = "󰏲";
+          "default" = "󰓃";
+        };
+        "on-click" = "pavucontrol-qt";
+      };
+
+      "group/hardware" = {
+        "orientation" = "horizontal";
+        "modules" = [
+          "memory"
+          "cpu"
+        ];
+      };
+
       memory = {
         "format" = "{icon}";
         "format-icons" = [
@@ -133,23 +157,6 @@ in
           "󰪤"
           "󰪥"
         ];
-      };
-
-      pulseaudio = {
-        "scroll-step" = 1;
-        "format" = "{volume}% {icon} {format_source}";
-        "format-bluetooth" = "{volume}% {icon} 󰂰 {format_source}";
-        "format-bluetooth-muted" = "󰓄 {format_source}";
-        "format-muted" = "󰓄 {format_source}";
-        "format-source" = "{volume}% 󰍬";
-        "format-source-muted" = "󰍭";
-        "format-icons" = {
-          "headphone" = "󰋋";
-          "headset" = "󰋎";
-          "phone" = "󰏲";
-          "default" = "󰓃";
-        };
-        "on-click" = "pavucontrol-qt";
       };
 
       "keyboard-state" = {
