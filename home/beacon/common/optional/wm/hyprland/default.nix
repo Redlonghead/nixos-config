@@ -18,10 +18,6 @@
   ];
 
   home.packages = with pkgs; [
-    # Notifications
-    swaynotificationcenter
-    libnotify
-
     # Standalone
     hyprpolkitagent
     rofi-wayland
@@ -55,7 +51,6 @@
         "hypridle"
         "bash ~/.config/hypr/start.sh"
         "hyprpaper"
-        "blueman-applet"
         "xwaylandvideobridge"
         "clipse -listen"
         "systemctl --user start hyprpolkitagent"
