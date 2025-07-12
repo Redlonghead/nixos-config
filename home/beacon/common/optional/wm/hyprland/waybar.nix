@@ -50,7 +50,7 @@ in
       ];
 
       "custom/os" = {
-        "format" = "  ";
+        "format" = " ";
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
       };
 
@@ -212,7 +212,7 @@ in
 
     style = ''
       * { 
-        font-family: 'Fira Code', monospace;
+        font-family: 'FiraCode Nerd Font propo';
         font-size: 21px
       }
 
@@ -282,7 +282,7 @@ in
       #idle_inhibitor,
       #scratchpad,
       #mpd {
-        padding: 0 10px;
+        padding: 0 5px;
         color: #${sColor.base07};
         border: none;
         border-radius: 8px;
