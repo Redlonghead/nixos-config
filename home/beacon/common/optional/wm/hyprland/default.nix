@@ -18,10 +18,6 @@
   ];
 
   home.packages = with pkgs; [
-    # Notifications
-    swaynotificationcenter
-    libnotify
-
     # Standalone
     hyprpolkitagent
     rofi-wayland

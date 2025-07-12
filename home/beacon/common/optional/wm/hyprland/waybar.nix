@@ -10,6 +10,10 @@ let
 in
 {
   home.packages = with pkgs; [
+    # Notifications
+    swaynotificationcenter
+    libnotify
+
     networkmanagerapplet
     lxqt.pavucontrol-qt
   ];
