@@ -5,6 +5,9 @@
 }:
 
 {
+
+  wayland.windowManager.hyprland.settings.exec-once = [ "hyprpaper" ];
+
   services.hyprpaper = {
     enable = true;
     package = pkgs.hyprpaper;

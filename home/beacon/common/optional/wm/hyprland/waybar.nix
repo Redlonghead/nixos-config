@@ -23,6 +23,11 @@ in
     blueman-applet.enable = true;
   };
 
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "waybar"
+    "nm-applet --indicator"
+  ];
+
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;

@@ -47,12 +47,7 @@
       ];
 
       exec-once = [
-        "waybar"
-        "hypridle"
-        "bash ~/.config/hypr/start.sh"
-        "hyprpaper"
         "xwaylandvideobridge"
-        "clipse -listen"
         "systemctl --user start hyprpolkitagent"
       ];
 

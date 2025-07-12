@@ -4,6 +4,9 @@
 }:
 
 {
+
+  wayland.windowManager.hyprland.settings.exec-once = [ "hypridle" ];
+
   services.hypridle = {
     enable = true;
     package = pkgs.hypridle;
