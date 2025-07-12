@@ -36,9 +36,9 @@ in
 
       modules-left = [
         "custom/os"
-        "group/hardware"
         "memory"
         "cpu"
+        "group/battery"
         "pulseaudio"
         "keyboard-state"
       ];
@@ -54,11 +54,11 @@ in
         "on-click" = "rofi -show combi -show-icons -combi-modes 'drun,run'";
       };
 
-      "group/hardware" = {
+      "group/battery" = {
         "orientation" = "horizontal";
         "drawer" = {
           "transition-duration" = "500";
-          "children-class" = "hardware-htop";
+          "children-class" = "battery-light";
           "transition-left-to-right" = true;
         };
         "modules" = [
