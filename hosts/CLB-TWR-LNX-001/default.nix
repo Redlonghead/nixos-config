@@ -7,7 +7,7 @@
 #############################################################
 
 {
-  configLib,
+  lib,
   ...
 }:
 
@@ -22,7 +22,7 @@
       ############ NixOS-Secrets Modules ###############
 
     ]
-    ++ (map configLib.relativeToRoot [
+    ++ (map lib.custom.relativeToRoot [
       ############ Required Configs ####################
       "hosts/common/core"
 

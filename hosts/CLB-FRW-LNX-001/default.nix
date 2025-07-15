@@ -8,9 +8,7 @@
 {
   lib,
   inputs,
-  config,
   configVars,
-  configLib,
   ...
 }:
 
@@ -26,7 +24,7 @@
       ############ NixOS-Secrets Modules ###############
       inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
     ]
-    ++ (map configLib.relativeToRoot [
+    ++ (map lib.custom.relativeToRoot [
       ############ Required Configs ####################
       "hosts/common/core"
 

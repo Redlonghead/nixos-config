@@ -1,13 +1,12 @@
 {
   outputs,
-  configLib,
   pkgs,
   lib,
   ...
 }:
 
 {
-  imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.nixosModules);
+  imports = (lib.custom.scanPaths ./.) ++ (builtins.attrValues outputs.nixosModules);
 
   security.sudo.extraConfig = ''
     Defaults timestamp_timeout=120 # only ask for password every 2h

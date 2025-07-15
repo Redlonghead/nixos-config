@@ -11,15 +11,17 @@
           system: f inputs.nixpkgs-stable.legacyPackages.${system}
         );
 
-      inherit (inputs.nixpkgs-stable) lib;
+      # Extend lib with custom library functions
+      lib = inputs.nixpkgs-stable.lib.extend (
+        self: super: { custom = import ./lib { inherit (inputs.nixpkgs-stable) lib; }; }
+      );
+
       configVars = import ./vars { inherit inputs lib; };
-      configLib = import ./lib { inherit lib; };
       specialArgs = {
         inherit
           inputs
           outputs
           configVars
-          configLib
           ;
       };
 
@@ -29,8 +31,6 @@
           allowUnfree = true;
         };
       };
-
-      home-manager = inputs.home-manager-stable;
 
       # Eval the treefmt modules
       treefmtEval = forAllSystems (
@@ -88,28 +88,30 @@
           modules = [
             ./hosts/CLB-FRW-LNX-001
           ];
-          inherit specialArgs;
+          inherit specialArgs lib;
         };
 
         CLB-TWR-LNX-001 = lib.nixosSystem {
           modules = [
             ./hosts/CLB-TWR-LNX-001
           ];
-          inherit specialArgs;
+          inherit specialArgs lib;
         };
       };
 
       homeConfigurations = {
-        "beacon@CLB-FRW-LNX-001" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        "beacon@CLB-FRW-LNX-001" = inputs.home-manager-stable.lib.homeManagerConfiguration {
+          # home-manager extents lib as well so I need to inherit lib
+          inherit pkgs lib;
           modules = [
             ./home/beacon/CLB-FRW-LNX-001.nix
           ];
           extraSpecialArgs = specialArgs;
         };
 
-        "beacon@CLB-TWR-LNX" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        "beacon@CLB-TWR-LNX" = inputs.home-manager-stable.lib.homeManagerConfiguration {
+          # home-manager extents lib as well so I need to inherit lib
+          inherit pkgs lib;
           modules = [
             ./home/beacon/CLB-TWR-LNX-001.nix
           ];

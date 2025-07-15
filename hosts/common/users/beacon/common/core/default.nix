@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  configLib,
   pkgs,
   ...
 }:
@@ -11,7 +10,7 @@ let
   pubKeys = lib.filesystem.listFilesRecursive ../keys;
 in
 {
-  imports = (configLib.scanPaths ./.);
+  imports = (lib.custom.scanPaths ./.);
 
   # Define a user account.
   sops.secrets."users/beacon/pass".neededForUsers = true;
@@ -41,7 +40,7 @@ in
     shell = pkgs.zsh; # default shell
   };
 
-  # home-manager.users.beacon = import (configLib.relativeToRoot "home/beacon/${config.networking.hostName}.nix");
+  # home-manager.users.beacon = import (lib.custom.relativeToRoot "home/beacon/${config.networking.hostName}.nix");
 
   # Fonts
   fonts.fontDir.enable = true;

@@ -2,12 +2,11 @@
   lib,
   pkgs,
   outputs,
-  configLib,
   ...
 }:
 
 {
-  imports = (configLib.scanPaths ./.) ++ (builtins.attrValues outputs.homeModules);
+  imports = (lib.custom.scanPaths ./.) ++ (builtins.attrValues outputs.homeModules);
 
   # Default Info / Settings
   news.display = "silent";
