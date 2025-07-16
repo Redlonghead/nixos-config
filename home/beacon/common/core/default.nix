@@ -51,13 +51,17 @@
     };
   };
 
+  stylix.targets = {
+    bat.enable = true;
+    yazi.enable = true;
+  };
+
   programs = {
     home-manager.enable = true;
 
     bat = {
       enable = true;
       package = pkgs.bat;
-      config.theme = "Visual Studio Dark+";
     };
 
     eza = {
