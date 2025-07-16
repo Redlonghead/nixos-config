@@ -12,7 +12,6 @@
     ./rofi.nix
     ../style.nix
     ../../uiApps/kitty.nix
-    ../cursor.nix
     ../clipboard.nix
   ];
 

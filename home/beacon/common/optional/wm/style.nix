@@ -26,6 +26,16 @@ in
       sha256 = backgroundSha256;
     };
 
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
+    opacity.terminal = 0.75;
+
+    overlays.enable = true;
+
     # fonts = {
     #   monospace = {
     #     package = pkgs.nerd-fonts.fira-code;
