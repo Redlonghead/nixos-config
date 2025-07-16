@@ -59,8 +59,8 @@ in
     # };
 
     targets = {
+      nixos-icons.enable = true;
       kde.enable = true;
-      kitty.enable = true;
       gtk.enable = true;
       qt.enable = true;
     };

@@ -53,6 +53,7 @@ in
     # };
 
     targets = {
+      nixos-icons.enable = true;
       lightdm.enable = true;
       console.enable = true;
     };
