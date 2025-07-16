@@ -10,11 +10,10 @@
     ./hyprpaper.nix
     ./waybar.nix
     ./rofi.nix
-    ../../style
+    ../style.nix
     ../../uiApps/kitty.nix
     ../cursor.nix
     ../clipboard.nix
-
   ];
 
   home.packages = with pkgs; [
