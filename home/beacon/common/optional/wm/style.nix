@@ -18,7 +18,7 @@ in
 
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     base16Scheme = "${themePath}/theme.yaml";
     polarity = themePolarity;
     image = pkgs.fetchurl {
