@@ -4,8 +4,11 @@
   ...
 }:
 
+let
+  sColor = config.lib.stylix.colors;
+in
 {
-  stylix.targets.lazygit.enable = true;
+  stylix.targets.lazygit.enable = false;
 
   programs = {
     git = {
@@ -36,6 +39,31 @@
     lazygit = {
       enable = true;
       package = pkgs.lazygit;
+      settings = {
+        nerdFontsVersion = "3";
+        os = {
+          editPreset = "vscode";
+          openLink = "floorp {{link}}";
+          copyToClipboardCmd = "wl-copy {{text}}";
+        };
+        gui.theme = {
+          activeBorderColor = [
+            sColor.base07
+            "bold"
+          ];
+          inactiveBorderColor = [ sColor.base04 ];
+          searchingActiveBorderColor = [
+            sColor.base02
+            "bold"
+          ];
+          optionsTextColor = [ sColor.base06 ];
+          selectedLineBgColor = [ sColor.base03 ];
+          cherryPickedCommitBgColor = [ sColor.base02 ];
+          cherryPickedCommitFgColor = [ sColor.base03 ];
+          unstagedChangesColor = [ sColor.base08 ];
+          defaultFgColor = [ sColor.base05 ];
+        };
+      };
     };
 
     zsh.shellAliases = {
