@@ -15,7 +15,7 @@
 
       # Everything
       # bitwarden
-      discord
+      discord-ptb
       moonlight-qt
       obsidian
       obs-studio
