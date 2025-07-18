@@ -1,8 +1,15 @@
 {
+  config,
   pkgs,
   ...
 }:
 
+let
+  sColor = config.lib.stylix.colors;
+
+  rgb = color: "rgb(${color})";
+  rgba = color: alpha: "rgba(${color}${alpha})";
+in
 {
   imports = [
     ./hypridle.nix
@@ -10,12 +17,12 @@
     ./hyprpaper.nix
     ./waybar.nix
     ./rofi.nix
-    ../../style
+    ../style.nix
     ../../uiApps/kitty.nix
-    ../cursor.nix
     ../clipboard.nix
-
   ];
+
+  stylix.targets.hyprland.enable = false;
 
   home.packages = with pkgs; [
     # Standalone
@@ -187,8 +194,8 @@
           "gaps_in" = 5;
           "gaps_out" = 20;
           "border_size" = 2;
-          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+          "col.active_border" = rgb sColor.base0D;
+          "col.inactive_border" = rgb sColor.base03;
           "layout" = "dwindle";
           "allow_tearing" = false;
         }
@@ -198,7 +205,8 @@
         {
           "rounding" = 10;
           shadow = {
-            "enabled" = false;
+            "enabled" = true;
+            "color" = rgba sColor.base00 "99";
           };
           blur = {
             "enabled" = false;
@@ -223,6 +231,18 @@
           ];
         }
       ];
+
+      group = {
+        "col.border_inactive" = rgb sColor.base03;
+        "col.border_active" = rgb sColor.base0D;
+        "col.border_locked_active" = rgb sColor.base0C;
+
+        groupbar = {
+          text_color = rgb sColor.base05;
+          "col.active" = rgb sColor.base0D;
+          "col.inactive" = rgb sColor.base03;
+        };
+      };
 
       dwindle = [
         {

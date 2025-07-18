@@ -8,6 +8,9 @@ let
   sColor = config.lib.stylix.colors;
 in
 {
+
+  stylix.targets.hyprlock.enable = false;
+
   programs.hyprlock = {
     enable = true;
     package = pkgs.hyprlock;
@@ -24,9 +27,7 @@ in
 
       background = [
         {
-          path = [
-            (builtins.toString config.stylix.image)
-          ];
+          path = [ (builtins.toString config.stylix.image) ];
           blur_passes = 2;
         }
       ];
@@ -40,16 +41,11 @@ in
           dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0
           dots_center = true;
           dots_rounding = -1; # -1 default circle, -2 follow input-field rounding
-          outer_color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
-          inner_color = "rgb(${sColor.base00-rgb-r},${sColor.base00-rgb-g},${sColor.base00-rgb-b})";
-          font_color = "rgb(${sColor.base07-rgb-r},${sColor.base07-rgb-g},${sColor.base07-rgb-b})";
           fade_on_empty = true;
           fade_timeout = 5000; # Milliseconds before fade_on_empty is triggered.
           placeholder_text = "<i>Input Password...</i>"; # Text rendered in the input box when it's empty.
           hide_input = false;
           rounding = -1; # -1 means complete rounding (circle/oval)
-          check_color = "rgb(${sColor.base0A-rgb-r},${sColor.base0A-rgb-g},${sColor.base0A-rgb-b})";
-          fail_color = "rgb(${sColor.base08-rgb-r},${sColor.base08-rgb-g},${sColor.base08-rgb-b})";
           fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>"; # can be set to empty
           fail_transition = 300; # transition time in ms between normal outer_color and fail_color
           capslock_color = -1;
@@ -61,6 +57,12 @@ in
           position = "0, -20";
           halign = "center";
           valign = "center";
+
+          outer_color = "rgb(${sColor.base03})";
+          inner_color = "rgb(${sColor.base00})";
+          font_color = "rgb(${sColor.base05})";
+          fail_color = "rgb(${sColor.base08})";
+          check_color = "rgb(${sColor.base0A})";
         }
       ];
 
