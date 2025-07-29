@@ -43,9 +43,10 @@ in
 
   # Fonts
   fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
+  fonts.packages = with pkgs.nerd-fonts; [
+    fira-code
+    droid-sans-mono
+    geist-mono
   ];
 
   # Default tools on all systems
