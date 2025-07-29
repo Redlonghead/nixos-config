@@ -14,7 +14,7 @@
     (with pkgs; [
 
       # Everything
-      # bitwarden
+      bitwarden
       discord-ptb
       moonlight-qt
       obsidian
