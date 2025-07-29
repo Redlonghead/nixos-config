@@ -22,17 +22,16 @@ in
     description = "Connor";
     packages = [ pkgs.home-manager ];
 
-    extraGroups =
-      [
-        "wheel"
-      ]
-      ++ ifTheyExist [
-        "audio"
-        "video"
-        "docker"
-        "git"
-        "networkmanager"
-      ];
+    extraGroups = [
+      "wheel"
+    ]
+    ++ ifTheyExist [
+      "audio"
+      "video"
+      "docker"
+      "git"
+      "networkmanager"
+    ];
 
     # These get placed into /etc/ssh/authorized_keys.d/<name> on nixos
     openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
