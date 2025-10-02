@@ -47,7 +47,7 @@
 
     ])
     ++ (with pkgs.unstable; [
-      floorp # browser
+      floorp-bin # browser
 
       vscode # code editor
       # until vim is setup
