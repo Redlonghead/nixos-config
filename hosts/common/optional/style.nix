@@ -56,6 +56,10 @@ in
       nixos-icons.enable = true;
       lightdm.enable = true;
       console.enable = true;
+      grub = {
+        enable = true;
+        useWallpaper = true;
+      };
     };
   };
 }
