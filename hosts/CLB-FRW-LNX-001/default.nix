@@ -45,10 +45,16 @@
   ]);
 
   boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot";
-    systemd-boot.configurationLimit = 10; # Limits amount of configs on boot screen
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      configurationLimit = 10; # Limits amount of configs on boot screen
+    };
   };
 
   networking.hostName = "CLB-FRW-LNX-001";
