@@ -221,11 +221,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1753728388,
-        "narHash": "sha256-C+ZOGv56BulR0DxCSfuoDWVzU9ydK/arlB/L2RTDbno=",
+        "lastModified": 1763097130,
+        "narHash": "sha256-T2kLxr8SxxlnMI3xLsc69u1+E3gDnUzCirHTVv6n+UI=",
         "ref": "refs/heads/main",
-        "rev": "f324440c130fabe638d9d6f471f042ddda30bc21",
-        "revCount": 40,
+        "rev": "37f4849fcc7103ecb497877821c36cc2efc6fc1e",
+        "revCount": 41,
         "type": "git",
         "url": "ssh://git@gitlab.com/Redlonghead/nixos-secrets.git"
       },

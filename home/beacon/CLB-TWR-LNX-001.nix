@@ -9,9 +9,14 @@
     common/optional/wm/hyprland
     common/optional/uiApps
     common/optional/cli-apps.nix
-
+    common/optional/school-apps.nix
   ];
 
-  services.yubikey-touch-detector.enable = true;
+  services = {
+
+    yubikey-touch-detector.enable = true;
+    mpris-proxy.enable = true; # Allows bluetooth devices access to media players
+
+  };
 
 }

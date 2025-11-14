@@ -30,39 +30,30 @@
     "hosts/common/optional/services/openssh.nix"
     "hosts/common/optional/services/pipewire.nix"
     "hosts/common/optional/services/printing.nix"
-    "hosts/common/optional/services/syncthing.nix"
     "hosts/common/optional/brightnessctl.nix"
     "hosts/common/optional/wm/hyprland.nix"
     "hosts/common/optional/appimage.nix"
-    # "hosts/common/optional/steam.nix"
-    "hosts/common/optional/style.nix"
+    "hosts/common/optional/steam.nix"
 
     ############ User to create ######################
-    "hosts/common/users/beacon"
+    "hosts/common/users/beacon/CLB-TWR-LNX-001.nix"
 
   ]);
 
   boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot";
-    systemd-boot.configurationLimit = 10; # Limits amount of configs on boot screen
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      configurationLimit = 10; # Limits amount of configs on boot screen
+    };
   };
 
-  networking = {
-    hostName = "CLB-TWR-LNX-001";
-    # interfaces = {
-    #   wlp41s0.ipv4.addresses = [{
-    #     address = "10.1.1.32";
-    #     prefixLength = 16;
-    #   }];
-
-    #   enp42s0.ipv4.addresses = [{
-    #     address = "10.1.1.22";
-    #     prefixLength = 16;
-    #   }];
-    # };
-  };
+  networking.hostName = "CLB-TWR-LNX-001";
 
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH
