@@ -10,5 +10,6 @@
 
   cd-gitroot = pkgs.callPackage ./cd-gitroot { };
   zsh-term-title = pkgs.callPackage ./zsh-term-title { };
+  librepods = pkgs.callPackage ./librepods { };
 
 }
