@@ -67,6 +67,7 @@
       "flakes"
     ];
     warn-dirty = false;
+    trusted-users = [ "@wheel" ];
   };
 
   environment.systemPackages = with pkgs; [
