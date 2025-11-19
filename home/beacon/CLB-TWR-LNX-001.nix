@@ -9,7 +9,7 @@
     common/optional/wm/hyprland
     common/optional/uiApps
     common/optional/cli-apps.nix
-    common/optional/school-apps.nix
+    # common/optional/school-apps.nix
   ];
 
   services = {

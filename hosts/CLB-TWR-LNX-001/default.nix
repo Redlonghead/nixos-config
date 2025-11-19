@@ -25,6 +25,9 @@
     ############ Required Configs ####################
     "hosts/common/core"
 
+    ############ Hardware Modules ####################
+    "hosts/common/optional/hardware/gpu/nvidia.nix"
+
     ############ Host-specific optional Config #######
     "hosts/common/optional/services/bluetooth.nix"
     "hosts/common/optional/services/openssh.nix"
@@ -50,10 +53,15 @@
       efiSupport = true;
       device = "nodev";
       configurationLimit = 10; # Limits amount of configs on boot screen
+      useOSProber = true;
     };
   };
 
   networking.hostName = "CLB-TWR-LNX-001";
+
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
 
   # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
   # https://nixos.wiki/wiki/Visual_Studio_Code # Remote_SSH

@@ -109,7 +109,7 @@
           extraSpecialArgs = specialArgs;
         };
 
-        "beacon@CLB-TWR-LNX" = inputs.home-manager-stable.lib.homeManagerConfiguration {
+        "beacon@CLB-TWR-LNX-001" = inputs.home-manager-stable.lib.homeManagerConfiguration {
           # home-manager extents lib as well so I need to inherit lib
           inherit pkgs lib;
           modules = [
