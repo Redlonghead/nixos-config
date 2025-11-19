@@ -27,6 +27,9 @@
     ############ Required Configs ####################
     "hosts/common/core"
 
+    ############ Hardware Modules ####################
+    "hosts/common/optional/hardware/lt-power.nix"
+
     ############ Host-specific optional Config #######
     "hosts/common/optional/services/bluetooth.nix"
     "hosts/common/optional/services/openssh.nix"
@@ -35,7 +38,6 @@
     "hosts/common/optional/brightnessctl.nix"
     "hosts/common/optional/wm/hyprland.nix"
     # "hosts/common/optional/wm/cosmic.nix"
-    "hosts/common/optional/lt-power.nix"
     "hosts/common/optional/appimage.nix"
     "hosts/common/optional/steam.nix"
 
