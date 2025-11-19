@@ -41,7 +41,7 @@
 
     resolved = {
       enable = true;
-      dnssec = "true";
+      dnssec = "false";
       domains = [ "~." ];
       dnsovertls = "true";
     };
