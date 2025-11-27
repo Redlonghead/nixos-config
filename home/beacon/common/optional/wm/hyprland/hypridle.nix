@@ -26,6 +26,8 @@
           on-timeout = "loginctl lock-session";
         }
         {
+          # FIXME Hyprland crashes when waking up on NVIDIA GPU
+          # base the fix on https://github.com/0xFMD/hyprland-suspend-fix which might work
           # Suspend after 7 min.
           timeout = 420; # in seconds
           on-timeout = "systemctl suspend";
