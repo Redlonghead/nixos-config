@@ -10,6 +10,7 @@
 
   # Default Info / Settings
   news.display = "silent";
+  xdg.enable = true;
   home = {
     username = "beacon";
     homeDirectory = lib.mkDefault "/home/beacon";
