@@ -27,7 +27,6 @@ in
   home.packages = with pkgs; [
     # Standalone
     hyprpolkitagent
-    rofi-wayland
     hyprpicker
     playerctl
     hyprshot

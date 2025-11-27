@@ -35,7 +35,7 @@
       wayland.enable = true;
       enableHidpi = true;
       theme = "Elegant";
-      package = pkgs.libsForQt5.sddm;
+      package = pkgs.kdePackages.sddm;
     };
   };
 
