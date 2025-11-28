@@ -111,7 +111,7 @@ in
         "$mainMod SHIFT, P, exec, hyprpicker -ar"
 
         # fast fastfetch window from Framework Logo key (F12)
-        ", code:234, exec, [float;center;pin;dimaround;size 1000 450] kitty --hold fastfetch"
+        ", code:234, exec, [float;center;pin;dimaround;size 1000 550] kitty --hold fastfetch"
 
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
@@ -253,12 +253,6 @@ in
       # master = [{
       #   "new_is_master" = true;
       # }];
-
-      gestures = [
-        {
-          "workspace_swipe" = "off";
-        }
-      ];
 
       misc = [
         {
