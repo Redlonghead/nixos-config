@@ -4,6 +4,11 @@
   ...
 }:
 
+let
+  custom-elegant-sddm = pkgs.elegant-sddm-qt6.override {
+    themeConfig.General.background = config.stylix.image;
+  };
+in
 {
   imports = [
     ./pipewire.nix
@@ -18,7 +23,7 @@
   environment.systemPackages = with pkgs; [
     wayland
     waydroid
-    (elegant-sddm.override { themeConfig.General.background = config.stylix.image; })
+    custom-elegant-sddm
   ];
 
   # Configure xwayland
@@ -36,6 +41,7 @@
       enableHidpi = true;
       theme = "Elegant";
       package = pkgs.kdePackages.sddm;
+      extraPackages = [ custom-elegant-sddm ];
     };
   };
 
