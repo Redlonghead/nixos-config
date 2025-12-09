@@ -21,7 +21,7 @@
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
 
     ############ NixOS-Secrets Modules ###############
-    inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
+    # inputs.nixos-secrets.nixosModules.Tailscale-CT-CLB-FRW-LNX-001
   ]
   ++ (map lib.custom.relativeToRoot [
     ############ Required Configs ####################
