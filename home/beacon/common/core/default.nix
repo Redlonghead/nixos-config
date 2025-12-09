@@ -28,7 +28,7 @@
       localsend
       sops
       nixd
-      nixfmt-rfc-style
+      nixfmt
       bitwarden-cli
       just
       fastfetch
