@@ -4,17 +4,9 @@
   stdenvNoCC,
   fetchFromGitHub,
   kdePackages,
-  /*
-    An example of how you can override the background with a NixOS wallpaper
-    *
-    *  environment.systemPackages = [
-    *    (pkgs.elegant-sddm.override {
-    *      themeConfig.General = {
-             background = "${pkgs.nixos-artwork.wallpapers.simple-dark-gray-bottom.gnomeFilePath}";
-    *      };
-    *    })
-    *  ];
-  */
+
+  # Override themeConfig.General.background for custom backgrounds
+  # https://wiki.nixos.org/wiki/SDDM_Themes
   themeConfig ? null,
 }:
 
@@ -23,7 +15,7 @@ let
 in
 
 stdenvNoCC.mkDerivation {
-  pname = "elegant-sddm";
+  pname = "elegant-sddm-qt6";
   version = "unstable-2024-03-30";
 
   src = fetchFromGitHub {
@@ -56,6 +48,6 @@ stdenvNoCC.mkDerivation {
     description = "Sleek and stylish SDDM theme crafted in QML for Qt6";
     homepage = "https://github.com/rainD4X/Elegant-sddm-qt6";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ GaetanLepage ];
+    maintainers = with maintainers; [ redlonghead ];
   };
 }
