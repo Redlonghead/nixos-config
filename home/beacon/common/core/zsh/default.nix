@@ -49,7 +49,7 @@
     oh-my-posh = {
       enable = true;
       package = pkgs.oh-my-posh;
-      settings = lib.importJSON ./omp-config.json;
+      configFile = ./omp-config.json;
     };
   };
 }
