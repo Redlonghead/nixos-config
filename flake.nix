@@ -72,11 +72,13 @@
       packages = forAllSystems (system: import ./pkgs { inherit pkgs; });
 
       # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
-      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forAllSystems (
+        pkgs: treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper
+      );
 
       # Nix Flake checker available through 'nix flake check'
       checks = forAllSystems (pkgs: {
-        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+        formatting = treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.check self;
       });
 
       # Shell configured with packages that are typically only needed when working on or with nix-config.
