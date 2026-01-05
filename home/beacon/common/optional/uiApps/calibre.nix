@@ -5,6 +5,8 @@
 }:
 
 {
+  # TODO: See about creating/using a HM module for calibre
+
   home.packages = [ pkgs.calibre ];
 
   # auto download DeDRM and ACSM Input plugins for Calibre

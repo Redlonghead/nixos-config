@@ -4,12 +4,6 @@
 }:
 
 {
-  imports = [
-
-    ./calibre.nix
-
-  ];
-
   home.packages =
     (with pkgs; [
 
@@ -29,6 +23,7 @@
       keepassxc
       # modrinth-app
       prismlauncher
+      calibre
 
       # Made by KDE
       kdePackages.dolphin
