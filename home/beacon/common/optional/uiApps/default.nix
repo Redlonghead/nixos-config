@@ -40,12 +40,13 @@
       # kicad
       # olive-editor
 
+      vscode # code editor
+      # until vim is setup
+
     ])
     ++ (with pkgs.unstable; [
       floorp-bin # browser
 
-      vscode # code editor
-      # until vim is setup
 
     ]);
 
