@@ -43,7 +43,6 @@
       enable = true;
       dnssec = "false";
       domains = [ "~." ];
-      dnsovertls = "true";
     };
   };
 
