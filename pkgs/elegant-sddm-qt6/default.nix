@@ -16,7 +16,7 @@ in
 
 stdenvNoCC.mkDerivation {
   pname = "elegant-sddm-qt6";
-  version = "unstable-2024-03-30";
+  version = "0-unstable-2024-03-30";
 
   src = fetchFromGitHub {
     owner = "rainD4X";
@@ -25,11 +25,11 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-l4gv1PEVWpLmzNt1c+dHTHtM5WlEsXdDgW3q8U3FMUQ=";
   };
 
-  propagatedBuildInputs = [
-    kdePackages.qt5compat
-  ];
-
   dontWrapQtApps = true;
+  propagatedBuildInputs = [
+    # avoid .dev outputs propagation
+    kdePackages.qt5compat.out
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -44,10 +44,13 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Sleek and stylish SDDM theme crafted in QML for Qt6";
     homepage = "https://github.com/rainD4X/Elegant-sddm-qt6";
-    license = licenses.gpl3;
-    maintainers = with maintainers; [ redlonghead ];
+    license = lib.licenses.gpl3;
+    maintainers = with lib.maintainers; [
+      GaetanLepage
+      redlonghead
+    ];
   };
 }
