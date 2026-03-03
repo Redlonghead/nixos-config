@@ -47,7 +47,6 @@
     ++ (with pkgs.unstable; [
       floorp-bin # browser
 
-
     ]);
 
 }
