@@ -70,7 +70,7 @@ homeManagerTrace host=HOST user=USER: _lint && _homeManagerPost
 [no-exit-message]
 flakeUpdate host=HOST user=USER:
     nh os switch . -u --ask -H {{ host }}
-    nh home switch . -u --ask -c {{ user }}@{{ host }}
+    nh home switch . --ask -c {{ user }}@{{ host }}
 
 # Garbage Collect for NixOS
 [no-exit-message]
